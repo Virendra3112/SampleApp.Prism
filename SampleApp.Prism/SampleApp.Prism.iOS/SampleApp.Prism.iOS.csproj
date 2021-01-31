@@ -63,6 +63,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Helpers\iOSInitializer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
@@ -138,6 +139,5 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CustomRendrers\" />
-    <Folder Include="Helpers\" />
   </ItemGroup>
 </Project>
