@@ -133,4 +133,8 @@
       <Name>SampleApp.Prism</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CustomRendrers\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
 </Project>
