@@ -9,10 +9,31 @@
              prism:ViewModelLocator.AutowireViewModel="True" 
              >
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Login Page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="6*"/>
+            </Grid.RowDefinitions>
+
+            <Frame Margin="15" Padding="5" Grid.Row="1" CornerRadius="20" IsClippedToBounds="False" BackgroundColor="#121212" >
+                <StackLayout Orientation="Vertical" Padding="30" Spacing="40" BackgroundColor="Transparent" >
+                    <Image HorizontalOptions="Center" HeightRequest="50" WidthRequest="50" Source="icon"/>
+                    <StackLayout Orientation="Vertical" Spacing="10" BackgroundColor="Transparent" >
+                        <Entry x:Name="Email" Text="{Binding Email}" Placeholder="Email"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           Keyboard="Email"  BackgroundColor="#121212"
+                           TextColor="White"/>
+                        <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Password"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           IsPassword="True"  BackgroundColor="#121212"
+                           TextColor="White"/>
+                    </StackLayout>
+                    <Button Command="{Binding LoginCommand}" Text="Login" TextColor="White"  
+                    FontAttributes="Bold" FontSize="Medium" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#18242b" />
+                </StackLayout>
+            </Frame>
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
