@@ -12,7 +12,7 @@ namespace SampleApp.Prism
         protected override void OnInitialized()
         {
             InitializeComponent();
-           // NavigationService.NavigateAsync(PageConstants.MY_PAGE);
+            NavigationService.NavigateAsync(PageConstants.LoginPageKey);
 
 
         }
