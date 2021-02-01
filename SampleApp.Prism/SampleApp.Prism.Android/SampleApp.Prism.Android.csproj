@@ -100,13 +100,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CustomRendrers\" />
-    <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SampleApp.Prism\SampleApp.Prism.csproj">
       <Project>{76D06059-5CCC-4F63-B8A2-EBD9F994C8EF}</Project>
       <Name>SampleApp.Prism</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\splash.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
