@@ -54,6 +54,8 @@ namespace SampleApp.Prism.ViewModels
             _navigationService = navigationService;
             _dialogService = dialogService;
             _pageDialogService = pageDialogService;
+
+            CheckConnectivity();
         }
 
         /// <summary>

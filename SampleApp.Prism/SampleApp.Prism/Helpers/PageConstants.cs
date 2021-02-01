@@ -4,6 +4,5 @@
     {
         public static string LoginPageKey = "LoginPage";
         public static string DashboardPageKey = "DashboardPage";
-
     }
 }
