@@ -2,6 +2,8 @@
 using Prism.Ioc;
 using Prism.Unity;
 using SampleApp.Prism.Helpers;
+using SampleApp.Prism.ViewModels;
+using SampleApp.Prism.Views;
 
 namespace SampleApp.Prism
 {
@@ -12,14 +14,15 @@ namespace SampleApp.Prism
         protected override void OnInitialized()
         {
             InitializeComponent();
+
+            //add already loggged in check
             NavigationService.NavigateAsync(PageConstants.LoginPageKey);
 
 
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            //containerRegistry.RegisterForNavigation<AboutPage, AboutPageViewModel>();
-            //containerRegistry.RegisterForNavigation<MyPage, MyPageViewModel>();
+            containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
         }
     }
 }

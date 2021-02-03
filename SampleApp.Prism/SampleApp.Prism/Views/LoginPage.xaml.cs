@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prism.Mvvm;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,12 @@ namespace SampleApp.Prism.Views
         public LoginPage()
         {
             InitializeComponent();
+        }
+
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
         }
     }
 }
