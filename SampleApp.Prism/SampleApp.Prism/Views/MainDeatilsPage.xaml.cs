@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace SampleApp.Prism.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainDeatilsPage : ContentPage
+    public partial class MainDeatilsPage : MasterDetailPage
     {
         public MainDeatilsPage()
         {

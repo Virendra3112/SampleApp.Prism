@@ -1,15 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="SampleApp.Prism.Views.MainDeatilsPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+    <MasterDetailPage.Master>
+
+        <ContentPage Title="Menu">
+            <StackLayout BackgroundColor="Red" Padding="20">
+                <Button Text="Item 1" TextColor="White" Command="{Binding OnNavigateCommand}"  />
+                <Button Text="Item 2" TextColor="White" Command="{Binding OnNavigateCommand}"/>
+            </StackLayout>
+
+        </ContentPage>
+    </MasterDetailPage.Master>
+</MasterDetailPage>
+
+<!--<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage  xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SampleApp.Prism.Views.MainDeatilsPage">
+    <FlyoutPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                --><!--<local:ContactsPage />--><!--
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>
+</FlyoutPage>-->
