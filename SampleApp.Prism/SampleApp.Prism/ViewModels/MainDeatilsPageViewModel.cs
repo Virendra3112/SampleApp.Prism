@@ -3,12 +3,10 @@ using Prism.Navigation;
 using Prism.Services;
 using Prism.Services.Dialogs;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SampleApp.Prism.ViewModels
 {
-   public class MainDeatilsPageViewModel : BaseViewModel
+    public class MainDeatilsPageViewModel : BaseViewModel
     {
        // INavigationService _navigationService;
         public DelegateCommand<string> OnNavigateCommand { get; set; }
