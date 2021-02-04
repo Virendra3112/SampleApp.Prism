@@ -2,6 +2,7 @@
 using Prism.Services;
 using Prism.Services.Dialogs;
 using Prism.Unity;
+using SampleApp.Prism.Helpers;
 using System;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -44,17 +45,17 @@ namespace SampleApp.Prism.ViewModels
 
         private async void LoginClicked(object obj)
         {
-            //try
-            //{
-            //    AppSettings.IsLoggedIn = true;
+            try
+            {
+                AppSettings.IsLoggedIn = true;
 
-            //    MessagingCenter.Send<LoginPageViewModel, string>(this, "UserLoggedIn", "test");
+                //MessagingCenter.Send<LoginPageViewModel, string>(this, "UserLoggedIn", "test");
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    await _pageDialogService.DisplayAlertAsync("Error", "Something went wrong" + ex.Message, "Ok");
-            //}
+            }
+            catch (Exception ex)
+            {
+                await _pageDialogService.DisplayAlertAsync("Error", "Something went wrong" + ex.Message, "Ok");
+            }
         }
     }
 }

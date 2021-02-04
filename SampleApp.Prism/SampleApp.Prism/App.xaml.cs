@@ -22,15 +22,15 @@ namespace SampleApp.Prism
             NavigationService.NavigateAsync(PageConstants.LoginPageKey);
 
 
-            //if (AppSettings.IsLoggedIn)
-            //{
-            //    NavigationService.NavigateAsync(new System.Uri("/NavigationPage/HomeTab?selectedTab=UserDeatilsTab", UriKind.Absolute));
+            if (AppSettings.IsLoggedIn)
+            {
+                //NavigationService.NavigateAsync(new System.Uri("/NavigationPage/HomeTab?selectedTab=UserDeatilsTab", UriKind.Absolute));
 
-            //}
-            //else
-            //{
-            //    NavigationService.NavigateAsync(new Uri("/NavigationPage/LoginPage", UriKind.Absolute));
-            //}
+            }
+            else
+            {
+                NavigationService.NavigateAsync(PageConstants.LoginPageKey);
+            }
 
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
