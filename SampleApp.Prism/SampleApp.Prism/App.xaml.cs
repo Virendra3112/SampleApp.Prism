@@ -5,6 +5,7 @@ using Prism.Unity;
 using SampleApp.Prism.Helpers;
 using SampleApp.Prism.ViewModels;
 using SampleApp.Prism.Views;
+using System;
 using Xamarin.Forms;
 
 namespace SampleApp.Prism
@@ -21,12 +22,26 @@ namespace SampleApp.Prism
             NavigationService.NavigateAsync(PageConstants.LoginPageKey);
 
 
+            //if (AppSettings.IsLoggedIn)
+            //{
+            //    NavigationService.NavigateAsync(new System.Uri("/NavigationPage/HomeTab?selectedTab=UserDeatilsTab", UriKind.Absolute));
+
+            //}
+            //else
+            //{
+            //    NavigationService.NavigateAsync(new Uri("/NavigationPage/LoginPage", UriKind.Absolute));
+            //}
+
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<NavigationPage>();
+
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<MainDeatilsPage, MainDeatilsPageViewModel>();
-            containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<MainDeatilsPage, MainDeatilsPageViewModel>();
+            containerRegistry.RegisterForNavigation<FirstDetailsPage, FirstDetailsPageViewModel>();
+            containerRegistry.RegisterForNavigation<SecondDetailsPage, SecondDetailsPageViewModel>();
         }
     }
 }
