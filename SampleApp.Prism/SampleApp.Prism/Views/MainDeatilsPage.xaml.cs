@@ -16,5 +16,11 @@ namespace SampleApp.Prism.Views
         {
             InitializeComponent();
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+            //return base.OnBackButtonPressed();
+        }
     }
 }

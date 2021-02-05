@@ -4,16 +4,58 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="SampleApp.Prism.Views.MainDeatilsPage">
+             x:Class="SampleApp.Prism.Views.MainDeatilsPage"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True" >
     <MasterDetailPage.Master>
 
-        <ContentPage Title="Menu">
-            <StackLayout BackgroundColor="Red" Padding="20">
-                <Button Text="Item 1" TextColor="White" Command="{Binding OnNavigateCommand}"  />
-                <Button Text="Item 2" TextColor="White" Command="{Binding OnNavigateCommand}"/>
-            </StackLayout>
+        <NavigationPage Title="Menu" 
+                        Icon="ic_hamburger.png">
 
-        </ContentPage>
+            <x:Arguments>
+                <ContentPage Title="My App">
+
+                    <ListView ItemsSource="{Binding MenuItems}"
+                              SelectedItem="{Binding SelectedMenuItem}"
+                              SeparatorColor="LightGray"
+                              RowHeight="60"
+                              SeparatorVisibility="Default"
+                              BackgroundColor="#e8e8e8">
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+
+                                    <!-- Main design for our menu items -->
+                                    <StackLayout VerticalOptions="FillAndExpand"
+                                                 Orientation="Horizontal"
+                                                 Padding="20,10,0,10"
+                                                 Spacing="20">
+
+                                        <Image Source="{Binding Icon}"
+                                               WidthRequest="35"
+                                               HeightRequest="35"
+                                               VerticalOptions="Center" />
+
+                                        <Label Text="{Binding Title}"
+                                               FontSize="Medium"
+                                               VerticalOptions="Center"
+                                               TextColor="Black"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+
+                        <ListView.Behaviors>
+                            <b:EventToCommandBehavior EventName="ItemTapped" 
+                                                      Command="{Binding NavigateCommand}" />
+                        </ListView.Behaviors>
+
+                    </ListView>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
     </MasterDetailPage.Master>
 </MasterDetailPage>
 
