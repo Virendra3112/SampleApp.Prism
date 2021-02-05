@@ -3,6 +3,7 @@ using Prism.Services;
 using Prism.Services.Dialogs;
 using Prism.Unity;
 using SampleApp.Prism.Helpers;
+using SampleApp.Prism.Views;
 using System;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -34,14 +35,15 @@ namespace SampleApp.Prism.ViewModels
         public ICommand SubmitCommand { protected set; get; }
         public ICommand LoginCommand { get; set; }
 
-
+        INavigationService _navigationService;
         public LoginPageViewModel(INavigationService navigationService, IDialogService dialogService, IPageDialogService pageDialogService)
             : base(navigationService, dialogService, pageDialogService)
         {
             LoginCommand = new Command(LoginClicked);
+            _navigationService = navigationService;
         }
 
-       
+
 
         private async void LoginClicked(object obj)
         {
@@ -49,7 +51,7 @@ namespace SampleApp.Prism.ViewModels
             {
                 AppSettings.IsLoggedIn = true;
 
-                //MessagingCenter.Send<LoginPageViewModel, string>(this, "UserLoggedIn", "test");
+                await _navigationService.NavigateAsync(nameof(MainDeatilsPage) + "/" + nameof(NavigationPage) + "/" + nameof(FirstDetailsPage));
 
             }
             catch (Exception ex)
