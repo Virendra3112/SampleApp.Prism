@@ -20,7 +20,6 @@ namespace SampleApp.Prism.Views
         protected override bool OnBackButtonPressed()
         {
             return true;
-            //return base.OnBackButtonPressed();
         }
     }
 }
