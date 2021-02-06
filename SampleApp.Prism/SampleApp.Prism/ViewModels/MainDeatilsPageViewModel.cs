@@ -36,14 +36,14 @@ namespace SampleApp.Prism.ViewModels
             {
                 Icon = "icon",
                 PageName = nameof(FirstDetailsPage),
-                Title = "View A"
+                Title = "First Details Page"
             });
 
             MenuItems.Add(new MyMenuItem()
             {
                 Icon = "icon",
                 PageName = nameof(SecondDetailsPage),
-                Title = "View B"
+                Title = "Second Details Page"
             });
 
             NavigateCommand = new DelegateCommand(Navigate);
@@ -53,29 +53,5 @@ namespace SampleApp.Prism.ViewModels
         {
             await _navigationService.NavigateAsync(nameof(NavigationPage) + "/" + SelectedMenuItem.PageName);
         }
-
-
-        //// INavigationService _navigationService;
-        // public DelegateCommand<string> OnNavigateCommand { get; set; }
-
-        // public MainDeatilsPageViewModel(INavigationService navigationService, IDialogService dialogService, IPageDialogService pageDialogService)
-        //     : base(navigationService, dialogService, pageDialogService)
-        // {
-        //     //_navigationService = navigationService;
-        //     OnNavigateCommand = new DelegateCommand<string>(NavigateToPage);
-        // }
-
-        // private async void NavigateToPage(string obj)
-        // {
-        //     try
-        //     {
-        //         await _navigationService.NavigateAsync(new Uri(obj, UriKind.Relative));
-        //     }
-        //     catch (Exception)
-        //     {
-
-        //         throw;
-        //     }
-        // }
     }
 }
