@@ -1,11 +1,9 @@
 ﻿using Prism;
 using Prism.Ioc;
-using Prism.Navigation.Xaml;
 using Prism.Unity;
 using SampleApp.Prism.Helpers;
 using SampleApp.Prism.ViewModels;
 using SampleApp.Prism.Views;
-using System;
 using Xamarin.Forms;
 
 namespace SampleApp.Prism
@@ -19,12 +17,13 @@ namespace SampleApp.Prism
             InitializeComponent();
 
             //add already loggged in check
-            NavigationService.NavigateAsync(PageConstants.LoginPageKey);
+            //NavigationService.NavigateAsync(PageConstants.LoginPageKey);
+            //NavigationService.NavigateAsync(nameof(MainDeatilsPage) + "/" + nameof(NavigationPage) + "/" + nameof(FirstDetailsPage));
 
 
             if (AppSettings.IsLoggedIn)
             {
-                //NavigationService.NavigateAsync(new System.Uri("/NavigationPage/HomeTab?selectedTab=UserDeatilsTab", UriKind.Absolute));
+                NavigationService.NavigateAsync(nameof(MainDeatilsPage) + "/" + nameof(NavigationPage) + "/" + nameof(FirstDetailsPage));
 
             }
             else
