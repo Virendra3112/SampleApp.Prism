@@ -1,20 +1,16 @@
 ﻿using Prism.Commands;
-using Prism.Mvvm;
 using Prism.Navigation;
+using Prism.Services;
+using Prism.Services.Dialogs;
 using SampleApp.Prism.Models;
 using SampleApp.Prism.Views;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using Xamarin.Forms;
 
 namespace SampleApp.Prism.ViewModels
 {
-    public class MainDeatilsPageViewModel : BindableBase//BaseViewModel
+    public class MainDeatilsPageViewModel : BaseViewModel
     {
-        private INavigationService _navigationService;
-
         public ObservableCollection<MyMenuItem> MenuItems { get; set; }
 
         private MyMenuItem selectedMenuItem;
@@ -24,11 +20,44 @@ namespace SampleApp.Prism.ViewModels
             set => SetProperty(ref selectedMenuItem, value);
         }
 
+
+        private bool setDarkMode;
+        public bool SetDarkMode
+        {
+            get => setDarkMode;
+            set => SetProperty(ref setDarkMode, value);
+
+            // SetTheme(setDarkMode);
+
+        }
         public DelegateCommand NavigateCommand { get; private set; }
 
-        public MainDeatilsPageViewModel(INavigationService navigationService)
+        //public MainDeatilsPageViewModel(INavigationService navigationService)
+        //{
+        //    _navigationService = navigationService;
+
+        //    MenuItems = new ObservableCollection<MyMenuItem>();
+
+        //    MenuItems.Add(new MyMenuItem()
+        //    {
+        //        Icon = "icon",
+        //        PageName = nameof(FirstDetailsPage),
+        //        Title = "First Details Page"
+        //    });
+
+        //    MenuItems.Add(new MyMenuItem()
+        //    {
+        //        Icon = "icon",
+        //        PageName = nameof(SecondDetailsPage),
+        //        Title = "Second Details Page"
+        //    });
+
+        //    NavigateCommand = new DelegateCommand(Navigate);
+        //}
+
+        public MainDeatilsPageViewModel(INavigationService navigationService, IDialogService dialogService, IPageDialogService pageDialogService)
+            : base(navigationService, dialogService, pageDialogService)
         {
-            _navigationService = navigationService;
 
             MenuItems = new ObservableCollection<MyMenuItem>();
 
@@ -47,11 +76,33 @@ namespace SampleApp.Prism.ViewModels
             });
 
             NavigateCommand = new DelegateCommand(Navigate);
+
         }
 
         async void Navigate()
         {
             await _navigationService.NavigateAsync(nameof(NavigationPage) + "/" + SelectedMenuItem.PageName);
+        }
+
+        public void SetTheme(bool status)
+        {
+            //Theme themeRequested;
+            //if (status)
+            //{
+            //    var backColor = (Color)Application.Current.Resources["DrawerPrimaryColor"];
+
+
+            //    themeRequested = Theme.Dark;
+            //}
+            //else
+            //{
+            //    var backColor = (Color)Application.Current.Resources["DrawerPrimaryColor"];
+
+
+            //    themeRequested = Theme.Light;
+            //}
+
+            //DependencyService.Get<IAppTheme>().SetAppTheme(themeRequested);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Acr.UserDialogs;
 using Plugin.Connectivity;
+using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
 using Prism.Services.Dialogs;
@@ -9,7 +10,7 @@ using System.Runtime.CompilerServices;
 
 namespace SampleApp.Prism.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged 
+    public class BaseViewModel : BindableBase,INotifyPropertyChanged
     {
 
         public bool IsConnected
