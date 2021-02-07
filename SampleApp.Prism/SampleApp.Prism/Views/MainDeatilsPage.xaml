@@ -15,44 +15,135 @@
 
             <x:Arguments>
                 <ContentPage Title="My App">
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="6*"/>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height=".5*"/>
+                        </Grid.RowDefinitions>
 
-                    <ListView ItemsSource="{Binding MenuItems}"
+                        <StackLayout Grid.Row="0" BackgroundColor="#e8e8e8"  Orientation="Horizontal"
+                                     Padding="10" >
+                            <Image Source="icon" HorizontalOptions="Start" VerticalOptions="Start"
+                                  HeightRequest="80" WidthRequest="80"/>
+
+                            <Label Text="Welcome, User" TextColor="Black" FontSize="Medium" VerticalOptions="Start" />
+                        </StackLayout>
+                        
+                        
+                        <ListView Grid.Row="1" ItemsSource="{Binding MenuItems}"
                               SelectedItem="{Binding SelectedMenuItem}"
                               SeparatorColor="LightGray"
                               RowHeight="60"
                               SeparatorVisibility="Default"
                               BackgroundColor="#e8e8e8">
 
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-
-                                    <!-- Main design for our menu items -->
-                                    <StackLayout VerticalOptions="FillAndExpand"
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>                               
+                                        <StackLayout VerticalOptions="FillAndExpand"
                                                  Orientation="Horizontal"
                                                  Padding="20,10,0,10"
                                                  Spacing="20">
 
-                                        <Image Source="{Binding Icon}"
+                                            <Image Source="{Binding Icon}"
                                                WidthRequest="35"
                                                HeightRequest="35"
                                                VerticalOptions="Center" />
 
-                                        <Label Text="{Binding Title}"
+                                            <Label Text="{Binding Title}"
                                                FontSize="Medium"
                                                VerticalOptions="Center"
                                                TextColor="Black"/>
-                                    </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
 
-                        <ListView.Behaviors>
-                            <b:EventToCommandBehavior EventName="ItemTapped" 
+                            <ListView.Behaviors>
+                                <b:EventToCommandBehavior EventName="ItemTapped" 
                                                       Command="{Binding NavigateCommand}" />
-                        </ListView.Behaviors>
+                            </ListView.Behaviors>
 
-                    </ListView>
+                        </ListView>
+                        
+
+                        <StackLayout Grid.Row="2" HorizontalOptions="StartAndExpand" Orientation="Horizontal" VerticalOptions="End" Margin="30,0,0,5">
+                            <Image Source="icon.png" VerticalOptions="Center" HeightRequest="35" WidthRequest="35"/>
+                            <Label Text="Logout" FontSize="Medium"                                                   
+                                  Padding="10,0,0,0" TextColor="Black"
+                                   VerticalOptions="Center"
+                                   HorizontalTextAlignment="Center" ></Label>
+
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="3" HorizontalOptions="StartAndExpand" Orientation="Horizontal" VerticalOptions="End" Margin="10,0,0,5">
+                            <Image Source="icon.png" VerticalOptions="Center" HeightRequest="20" WidthRequest="20"/>
+                            <Label Text="Application Version: 1.0.0"   FontSize="Small"
+                                   VerticalOptions="Center"
+                                   HorizontalTextAlignment="Center" ></Label>
+
+                        </StackLayout>
+
+                    </Grid>
+                    
+                    
+                    <!--<StackLayout>
+
+                        <StackLayout Background="Red" VerticalOptions="Start" HorizontalOptions="Start">
+                            
+                            
+                        </StackLayout>
+                        
+                        
+                        <ListView ItemsSource="{Binding MenuItems}"
+                              SelectedItem="{Binding SelectedMenuItem}"
+                              SeparatorColor="LightGray"
+                              RowHeight="60"
+                              SeparatorVisibility="Default"
+                              BackgroundColor="#e8e8e8">
+
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+
+                                        --><!-- Main design for our menu items --><!--
+                                        <StackLayout VerticalOptions="FillAndExpand"
+                                                 Orientation="Horizontal"
+                                                 Padding="20,10,0,10"
+                                                 Spacing="20">
+
+                                            <Image Source="{Binding Icon}"
+                                               WidthRequest="35"
+                                               HeightRequest="35"
+                                               VerticalOptions="Center" />
+
+                                            <Label Text="{Binding Title}"
+                                               FontSize="Medium"
+                                               VerticalOptions="Center"
+                                               TextColor="Black"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+
+                            <ListView.Behaviors>
+                                <b:EventToCommandBehavior EventName="ItemTapped" 
+                                                      Command="{Binding NavigateCommand}" />
+                            </ListView.Behaviors>
+
+                        </ListView>
+
+                        <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" VerticalOptions="End" Margin="10,0,0,5">
+                            <Image Source="icon.png" VerticalOptions="Center" HeightRequest="20" WidthRequest="20"/>
+                            <Label Text="V.3.0.1"   FontSize="Small"                                                   
+                                  
+                                   VerticalOptions="Center"
+                                   HorizontalTextAlignment="Center" ></Label>
+
+                        </StackLayout>
+                    </StackLayout>-->
                 </ContentPage>
             </x:Arguments>
         </NavigationPage>
