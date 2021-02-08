@@ -2,6 +2,7 @@
 using Prism.Ioc;
 using Prism.Unity;
 using SampleApp.Prism.Helpers;
+using SampleApp.Prism.Models.Enum;
 using SampleApp.Prism.ViewModels;
 using SampleApp.Prism.Views;
 using Xamarin.Forms;
@@ -11,6 +12,7 @@ namespace SampleApp.Prism
     public partial class App : PrismApplication
     {
         public App(IPlatformInitializer platformInitializer = null) : base(platformInitializer) { }
+        public static Theme AppTheme { get; set; }
 
         protected override void OnInitialized()
         {

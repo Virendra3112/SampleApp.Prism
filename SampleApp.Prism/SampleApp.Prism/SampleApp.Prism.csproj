@@ -20,10 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CustomControls\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Update="Resources\DarkTheme.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
