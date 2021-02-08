@@ -22,13 +22,20 @@ namespace SampleApp.Prism.ViewModels
 
 
         private bool setDarkMode;
+
         public bool SetDarkMode
         {
-            get => setDarkMode;
-            set => SetProperty(ref setDarkMode, value);
+            get
+            {
+                return setDarkMode;
+            }
+            set
+            {
+                setDarkMode = value;
+                RaisePropertyChanged();
 
-            // SetTheme(setDarkMode);
-
+                SetTheme(setDarkMode);
+            }
         }
         public DelegateCommand NavigateCommand { get; private set; }
 

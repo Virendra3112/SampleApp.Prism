@@ -18,7 +18,8 @@
                     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="2*"/>
-                            <RowDefinition Height="6*"/>
+                            <RowDefinition Height="5*"/>
+                            <RowDefinition Height="1*"/>
                             <RowDefinition Height="1*"/>
                             <RowDefinition Height=".5*"/>
                         </Grid.RowDefinitions>
@@ -67,9 +68,18 @@
                             </ListView.Behaviors>
 
                         </ListView>
-                        
 
                         <StackLayout Grid.Row="2" HorizontalOptions="StartAndExpand" Orientation="Horizontal" VerticalOptions="End" Margin="30,0,0,5">
+                            <Switch IsToggled="False"/>
+
+                            <Label Text="Set Theme" FontSize="Medium"                                                   
+                                  Padding="10,0,0,0" TextColor="Black"
+                                   VerticalOptions="Center"
+                                   HorizontalTextAlignment="Center" ></Label>
+
+                        </StackLayout>
+                        
+                        <StackLayout Grid.Row="3" HorizontalOptions="StartAndExpand" Orientation="Horizontal" VerticalOptions="End" Margin="30,0,0,5">
                             <Image Source="icon.png" VerticalOptions="Center" HeightRequest="35" WidthRequest="35"/>
                             <Label Text="Logout" FontSize="Medium"                                                   
                                   Padding="10,0,0,0" TextColor="Black"
@@ -78,7 +88,7 @@
 
                         </StackLayout>
 
-                        <StackLayout Grid.Row="3" HorizontalOptions="StartAndExpand" Orientation="Horizontal" VerticalOptions="End" Margin="10,0,0,5">
+                        <StackLayout Grid.Row="4" HorizontalOptions="StartAndExpand" Orientation="Horizontal" VerticalOptions="End" Margin="10,0,0,5">
                             <Image Source="icon.png" VerticalOptions="Center" HeightRequest="20" WidthRequest="20"/>
                             <Label Text="Application Version: 1.0.0"   FontSize="Small"
                                    VerticalOptions="Center"
