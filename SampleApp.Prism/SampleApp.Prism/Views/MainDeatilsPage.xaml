@@ -10,12 +10,13 @@
              prism:ViewModelLocator.AutowireViewModel="True" >
     <MasterDetailPage.Master>
 
-        <NavigationPage Title="Menu" 
+        <NavigationPage Title="Menu" BarBackgroundColor="Red"
                         Icon="ic_hamburger.png">
 
             <x:Arguments>
                 <ContentPage Title="My App">
-                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                          RowSpacing="0" >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="2*"/>
                             <RowDefinition Height="5*"/>
@@ -70,7 +71,7 @@
                         </ListView>
 
                         <StackLayout Grid.Row="2" HorizontalOptions="StartAndExpand" Orientation="Horizontal" VerticalOptions="End" Margin="30,0,0,5">
-                            <Switch IsToggled="False"/>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding SetDarkMode, Mode=TwoWay}"/>
 
                             <Label Text="Set Theme" FontSize="Medium"                                                   
                                   Padding="10,0,0,0" TextColor="Black"
