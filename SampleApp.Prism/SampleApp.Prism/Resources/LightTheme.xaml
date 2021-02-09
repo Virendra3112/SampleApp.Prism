@@ -6,4 +6,39 @@
              mc:Ignorable="d"
              x:Class="SampleApp.Prism.Resources.LightTheme">
     
+    <Color x:Key="BackgroundColor">#FFe0e0e0</Color>
+    <Color x:Key="FrameColor">#FFFFFFFF</Color>
+    <Color x:Key="TextPrimaryColor">#B0000000</Color>
+    <Color x:Key="TextSecondaryColor">#858585</Color>
+    
+    <Color x:Key="ListBackgroundColor">#ffffff</Color>
+    <Color x:Key="ListItemColor">#b2e2dc</Color>
+    <Color x:Key="ListItemLabelColor">#000000</Color>
+
+    <Color x:Key="DrawerBackgroundColor">#ffffff</Color>
+    <Color x:Key="DrawerPrimaryColor">#009F8B</Color>
+    <Color x:Key="DrawerLabelColor">#000000</Color>
+
+    <Color x:Key="whiteColor">#ffffff</Color>
+    <Color x:Key="blackColor">#000000</Color>
+    <Color x:Key="buttonColor">#009f8b</Color>
+    
+    <Style x:Key="Title" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}"/>
+        <Setter Property="FontSize" Value="Large"/>
+    </Style>
+
+    <Style x:Key="TransparentButton" TargetType="Button">
+        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="VerticalOptions" Value="FillAndExpand" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+    </Style>
+
+    <Style x:Key="MaterialFontButton" TargetType="Button" BasedOn="{StaticResource TransparentButton}">
+        <Setter Property="FontSize" Value="26" />
+        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="WidthRequest" Value="50" />
+        <Setter Property="HeightRequest" Value="50" />
+    </Style>
 </ResourceDictionary>

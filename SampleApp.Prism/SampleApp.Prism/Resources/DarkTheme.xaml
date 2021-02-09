@@ -5,5 +5,28 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="SampleApp.Prism.Resources.DarkTheme">
-   
+
+    <Color x:Key="BackgroundColor">#FF000000</Color>
+    <Color x:Key="FrameColor">#FF1f1f1f</Color>
+    <Color x:Key="TextPrimaryColor">#B0FFFFFF</Color>
+    <Color x:Key="TextSecondaryColor">#eFeFeF</Color>
+
+    <Color x:Key="ListBackgroundColor">#1F1A24</Color>
+    <Color x:Key="ListItemColor">#292929</Color>
+    <Color x:Key="ListItemLabelColor">#ffffff</Color>
+
+    <Color x:Key="DrawerBackgroundColor">#ffffff</Color>
+    <Color x:Key="DrawerPrimaryColor">#292929</Color>
+    <Color x:Key="DrawerLabelColor">#ffffff</Color>
+
+    <Color x:Key="whiteColor">#ffffff</Color>
+    <Color x:Key="blackColor">#000000</Color>
+    <Color x:Key="buttonColor">#009f8b</Color>
+
+    <Style x:Key="Title" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource TextPrimaryColor}"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="FontSize" Value="Large"/>
+    </Style>
+
 </ResourceDictionary>
