@@ -10,7 +10,7 @@
              prism:ViewModelLocator.AutowireViewModel="True" >
     <MasterDetailPage.Master>
 
-        <NavigationPage Title="Menu" BarBackgroundColor="Red"
+        <NavigationPage Title="Menu" BarBackgroundColor="Red"                        
                         Icon="ic_hamburger.png">
 
             <x:Arguments>

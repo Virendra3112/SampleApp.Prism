@@ -25,7 +25,7 @@ namespace SampleApp.Prism
 
             if (AppSettings.IsLoggedIn)
             {
-                NavigationService.NavigateAsync(nameof(MainDeatilsPage) + "/" + nameof(NavigationPage) + "/" + nameof(FirstDetailsPage));
+                NavigationService.NavigateAsync(nameof(MainDeatilsPage) + "/" + nameof(NavigationPage) + "/" + nameof(HomePage));
 
             }
             else
@@ -43,6 +43,7 @@ namespace SampleApp.Prism
             containerRegistry.RegisterForNavigation<MainDeatilsPage, MainDeatilsPageViewModel>();
             containerRegistry.RegisterForNavigation<FirstDetailsPage, FirstDetailsPageViewModel>();
             containerRegistry.RegisterForNavigation<SecondDetailsPage, SecondDetailsPageViewModel>();
+            containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
         }
     }
 }
