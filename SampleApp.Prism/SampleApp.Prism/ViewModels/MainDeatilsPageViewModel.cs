@@ -71,6 +71,13 @@ namespace SampleApp.Prism.ViewModels
             MenuItems.Add(new MyMenuItem()
             {
                 Icon = "icon",
+                PageName = nameof(HomePage),
+                Title = "Home"
+            });
+
+            MenuItems.Add(new MyMenuItem()
+            {
+                Icon = "icon",
                 PageName = nameof(FirstDetailsPage),
                 Title = "First Details Page"
             });
