@@ -60,6 +60,7 @@ namespace SampleApp.Prism
             containerRegistry.RegisterForNavigation<SecondDetailsPage, SecondDetailsPageViewModel>();
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
             containerRegistry.RegisterForNavigation<CarouselViewPage, CarouselViewPageViewModel>();
+            containerRegistry.RegisterForNavigation<CustomSVGPage, CustomSVGPageViewModel>();
         }
     }
 }

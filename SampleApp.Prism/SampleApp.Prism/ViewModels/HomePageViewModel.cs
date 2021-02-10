@@ -47,7 +47,7 @@ namespace SampleApp.Prism.ViewModels
                         break;
 
                     case ("SVG Scale"):
-                        await _navigationService.NavigateAsync(nameof(CarouselViewPage));
+                        await _navigationService.NavigateAsync(nameof(CustomSVGPage));
                         break;
 
                 }

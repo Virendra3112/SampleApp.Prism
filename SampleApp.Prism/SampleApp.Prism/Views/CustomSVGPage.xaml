@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:local="clr-namespace:SampleApp.Prism.CustomControls"
+             mc:Ignorable="d"
+             x:Class="SampleApp.Prism.Views.CustomSVGPage"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms" 
+             xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True" >
+    <ContentPage.Content>
+
+        <Grid HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+            <local:CustomSVGControl ResourceId="{Binding SvgUrl}"
+                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        </Grid>
+        <!--<StackLayout  BackgroundColor="Yellow" >
+
+            <local:CustomSVGControl ResourceId="{Binding SvgUrl}"
+                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            
+            <Label Text="SVG page"/>
+
+        </StackLayout>-->
+    </ContentPage.Content>
+</ContentPage>
