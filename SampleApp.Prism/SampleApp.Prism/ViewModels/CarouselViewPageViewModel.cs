@@ -24,8 +24,8 @@ namespace SampleApp.Prism.ViewModels
             }
         }
         
-        private double _height;
-        public double Height
+        private string _height;
+        public string Height
         {
             get { return _height; }
             set
@@ -33,8 +33,9 @@ namespace SampleApp.Prism.ViewModels
                 _height = value;
                 RaisePropertyChanged();
             }
-        }private double _width;
-        public double Width
+        }
+        private string _width;
+        public string Width
         {
             get { return _width; }
             set
@@ -51,15 +52,17 @@ namespace SampleApp.Prism.ViewModels
 
         public void GetData()
         {
-            Height = App.ScreenHeight;
-            Width = App.ScreenWidth;
+            Height = App.ScreenHeight.ToString();
+            Width = App.ScreenWidth.ToString();
 
             CList = new List<string>
             {
-                "Hey",
-                "Did you check the",
-                "The CarouselView",
-                "In Xamarin.Forms?"
+                "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/410.svg",
+                "https://cdn.shopify.com/s/files/1/0496/1029/files/Freesample.svg",
+                "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/zillow.svg",
+                "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/cartman.svg",
+                "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/mozilla.svg",
+                
             };
         }
     }
