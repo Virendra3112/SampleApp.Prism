@@ -5,14 +5,20 @@ using SampleApp.Prism.Helpers;
 using SampleApp.Prism.Models.Enum;
 using SampleApp.Prism.ViewModels;
 using SampleApp.Prism.Views;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace SampleApp.Prism
 {
     public partial class App : PrismApplication
     {
-        public App(IPlatformInitializer platformInitializer = null) : base(platformInitializer) { }
+        public App(IPlatformInitializer platformInitializer = null) : base(platformInitializer)
+        {            
+        }
         public static Theme AppTheme { get; set; }
+
+        public static double ScreenWidth;
+        public static double ScreenHeight;
 
         protected override void OnInitialized()
         {
@@ -21,7 +27,15 @@ namespace SampleApp.Prism
             //add already loggged in check
             //NavigationService.NavigateAsync(PageConstants.LoginPageKey);
             //NavigationService.NavigateAsync(nameof(MainDeatilsPage) + "/" + nameof(NavigationPage) + "/" + nameof(FirstDetailsPage));
+            var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
 
+            // Width (in pixels)
+            ScreenWidth = mainDisplayInfo.Width;
+
+            // Height (in pixels)
+            ScreenHeight = mainDisplayInfo.Height;
+
+          
 
             if (AppSettings.IsLoggedIn)
             {
@@ -32,6 +46,7 @@ namespace SampleApp.Prism
             {
                 NavigationService.NavigateAsync(PageConstants.LoginPageKey);
             }
+
 
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -44,6 +59,7 @@ namespace SampleApp.Prism
             containerRegistry.RegisterForNavigation<FirstDetailsPage, FirstDetailsPageViewModel>();
             containerRegistry.RegisterForNavigation<SecondDetailsPage, SecondDetailsPageViewModel>();
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
+            containerRegistry.RegisterForNavigation<CarouselViewPage, CarouselViewPageViewModel>();
         }
     }
 }
