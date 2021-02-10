@@ -12,7 +12,7 @@ using Xamarin.Forms;
 namespace SampleApp.Prism.ViewModels
 {
     public class HomePageViewModel : BaseViewModel
-    {       
+    {
         private ObservableCollection<MyMenuItem> _categoryList;
 
         public ObservableCollection<MyMenuItem> CategoryList
@@ -28,14 +28,31 @@ namespace SampleApp.Prism.ViewModels
             MenuItemCommand = new Command(MenuSelected);
 
             CategoryList = new ObservableCollection<MyMenuItem>();
-           
 
-            CategoryList.Add(new MyMenuItem { PageName = "CarouselView", Icon = "icon.png" });
+
+            CategoryList.Add(new MyMenuItem { PageName = "Carousel View", Icon = "icon.png" });
+            CategoryList.Add(new MyMenuItem { PageName = "SVG Scale", Icon = "icon.png" });
         }
 
         private async void MenuSelected(object obj)
         {
-            await _navigationService.NavigateAsync(nameof(CarouselViewPage));
+            if (obj != null)
+            {
+                var item = obj as MyMenuItem;
+
+                switch (item.PageName)
+                {
+                    case ("Carousel View"):
+                        await _navigationService.NavigateAsync(nameof(CarouselViewPage));
+                        break;
+
+                    case ("SVG Scale"):
+                        await _navigationService.NavigateAsync(nameof(CarouselViewPage));
+                        break;
+
+                }
+
+            }
 
         }
     }

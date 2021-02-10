@@ -12,7 +12,26 @@ namespace SampleApp.Prism.ViewModels
 {
     public class BaseViewModel : BindableBase,INotifyPropertyChanged
     {
-
+        private string _height;
+        public string Height
+        {
+            get { return _height; }
+            set
+            {
+                _height = value;
+                RaisePropertyChanged();
+            }
+        }
+        private string _width;
+        public string Width
+        {
+            get { return _width; }
+            set
+            {
+                _width = value;
+                RaisePropertyChanged();
+            }
+        }
         public bool IsConnected
         {
             get { return CrossConnectivity.Current.IsConnected; }

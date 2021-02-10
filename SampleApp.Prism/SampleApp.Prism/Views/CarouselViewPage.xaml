@@ -3,15 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"  Title="Carousel View Page"
+             mc:Ignorable="d"  Title="Carousel View Page" x:Name="self"
              x:Class="SampleApp.Prism.Views.CarouselViewPage"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms" xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              prism:ViewModelLocator.AutowireViewModel="True" >
     <AbsoluteLayout>
         <CarouselView
-            x:Name="TheCarousel"
-            ItemsSource="{Binding CList}"
+            IsSwipeEnabled="False"
+            ItemsSource="{Binding CarouselList}"
+             Position="{Binding CurrenrtImagePosition, Mode=TwoWay}"
             AbsoluteLayout.LayoutBounds="0,0,1,1"
             AbsoluteLayout.LayoutFlags="All"
             IndicatorView="indicatorview">
@@ -23,31 +24,9 @@
 
                         <ffSvg:SvgCachedImage BackgroundColor="Transparent" HeightRequest="600" WidthRequest="430" Margin="0"
                                          Aspect="AspectFit"      
-                                Source="{Binding .}"/>
-                        
+                                Source="{Binding ImageUrl}"/>                       
 
-                        <!--<StackLayout BackgroundColor="Red" AbsoluteLayout.LayoutBounds=".9,.5,100,100"
-                                     AbsoluteLayout.LayoutFlags="PositionProportional">
-
-                        </StackLayout>-->
-                        <!--<StackLayout BackgroundColor="#003a72"
-                            AbsoluteLayout.LayoutBounds=
-                            "0.5,0,500,500"
-                            AbsoluteLayout.LayoutFlags=
-                            "PositionProportional"
-                            HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">-->
-
-                            <!--<Image  Source="icon" HeightRequest="{Binding Height}" WidthRequest="{Binding Width}"
-                                   
-                                   />-->
-
-                            <!--<ffSvg:SvgCachedImage HeightRequest="{Binding Height}" WidthRequest="{Binding Width}"
-                                                  AbsoluteLayout.LayoutBounds="0,0,700,500"
-                            AbsoluteLayout.LayoutFlags= "PositionProportional"
-                                Source="resource://SampleApp.Prism.Resources.SVG.svg1.svg"/>-->
-
-    
-                        <!--</StackLayout>-->
+                      
                     </AbsoluteLayout>
                 </DataTemplate>
             </CarouselView.ItemTemplate>
@@ -58,8 +37,10 @@
             AbsoluteLayout.LayoutFlags="PositionProportional"
             IndicatorColor="LightGray"
             IndicatorSize="10"
+           
             SelectedIndicatorColor="Black" />
-
+        <Label  AbsoluteLayout.LayoutBounds="0.5,0.99,100,100"
+            AbsoluteLayout.LayoutFlags="PositionProportional" Text="{Binding CurrenrtImagePosition, Mode=TwoWay}"/>
         <!--<Image Source="icon" HeightRequest="20" WidthRequest="20"
                AbsoluteLayout.LayoutBounds="0.99,0.5,50,50"
             AbsoluteLayout.LayoutFlags="PositionProportional"
@@ -71,18 +52,35 @@
             AbsoluteLayout.LayoutFlags="PositionProportional"
                />-->
 
-        <ffSvg:SvgCachedImage Margin="0"  HeightRequest="32" WidthRequest="32"
+        <ffSvg:SvgCachedImage IsVisible="{Binding RightBtnVisible, Mode=TwoWay}" Margin="0"  HeightRequest="32" WidthRequest="32"
             AbsoluteLayout.LayoutBounds="0.99,0.5,32,32"
-            AbsoluteLayout.LayoutFlags="PositionProportional"
-                                         Aspect="AspectFit"      
-                                Source="resource://SampleApp.Prism.Resources.SVG.right-arrow.svg"/>
+            AbsoluteLayout.LayoutFlags="PositionProportional"                              
+                                         Aspect="AspectFit"                                   
+                                Source="resource://SampleApp.Prism.Resources.SVG.right-arrow.svg">
+
+            <!--<ffSvg:SvgCachedImage.Triggers>
+                
+                
+            </ffSvg:SvgCachedImage.Triggers>-->
+
+            <ffSvg:SvgCachedImage.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding BindingContext.RightCommand, Source={x:Reference self}}"
+                            CommandParameter="{Binding .}"/>
+            </ffSvg:SvgCachedImage.GestureRecognizers>
+        </ffSvg:SvgCachedImage>
 
 
-        <ffSvg:SvgCachedImage Margin="0"  HeightRequest="32" WidthRequest="32"
+        <ffSvg:SvgCachedImage IsVisible="{Binding LeftBtnVisible, Mode=TwoWay}" Margin="0" HeightRequest="32" WidthRequest="32"
                AbsoluteLayout.LayoutBounds="0.01,0.5,32,32"
             AbsoluteLayout.LayoutFlags="PositionProportional"
                                          Aspect="AspectFit"      
-                                Source="resource://SampleApp.Prism.Resources.SVG.left-arrow.svg"/>
+                                Source="resource://SampleApp.Prism.Resources.SVG.left-arrow.svg">
+
+            <ffSvg:SvgCachedImage.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding BindingContext.LeftCommand, Source={x:Reference self}}"
+                            CommandParameter="{Binding .}"/>
+            </ffSvg:SvgCachedImage.GestureRecognizers>
+        </ffSvg:SvgCachedImage>
 
 
     </AbsoluteLayout>
