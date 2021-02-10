@@ -11,6 +11,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\SVG\left-arrow.svg" />
+    <None Remove="Resources\SVG\right-arrow.svg" />
+    <None Remove="Resources\SVG\svg1.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\SVG\left-arrow.svg" />
+    <EmbeddedResource Include="Resources\SVG\right-arrow.svg" />
+    <EmbeddedResource Include="Resources\SVG\svg1.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.1.0.475" />
     <PackageReference Include="Prism.Unity.Forms" Version="8.0.0.1909" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
