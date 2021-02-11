@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using FFImageLoading;
+using FFImageLoading.Forms.Platform;
+using FFImageLoading.Svg.Forms;
 using Foundation;
 using SampleApp.Prism.iOS.Helpers;
 using UIKit;
+using Xamarin.Forms;
 
 namespace SampleApp.Prism.iOS
 {
@@ -23,6 +26,23 @@ namespace SampleApp.Prism.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Forms.SetFlags("IndicatorView_Experimental");
+
+            CachedImageRenderer.Init();
+            CachedImageRenderer.InitImageSourceHandler();
+            var ignore = typeof(SvgCachedImage);
+
+            var config = new FFImageLoading.Config.Configuration()
+            {
+                VerboseLogging = false,
+                VerbosePerformanceLogging = false,
+                VerboseMemoryCacheLogging=false,
+                VerboseLoadingCancelledLogging=false,
+
+            };
+
+            ImageService.Instance.Initialize(config);
+
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App(new iOSInitializer()));
 
