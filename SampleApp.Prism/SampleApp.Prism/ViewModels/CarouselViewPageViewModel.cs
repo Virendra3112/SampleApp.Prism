@@ -59,7 +59,7 @@ namespace SampleApp.Prism.ViewModels
                 SetBtnStatus(value);
             }
         }
-              
+
 
         public ICommand RightCommand { get; set; }
 
@@ -154,7 +154,7 @@ namespace SampleApp.Prism.ViewModels
                 new CarouselModel
                 {
 
-                    Id =1,
+                    Id = 1,
                     ImageUrl = "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/410.svg",
                     IsCurrent = false,
                 },
@@ -162,7 +162,7 @@ namespace SampleApp.Prism.ViewModels
                 new CarouselModel
                 {
 
-                    Id =2,
+                    Id = 2,
                     ImageUrl = "https://cdn.shopify.com/s/files/1/0496/1029/files/Freesample.svg",
                     IsCurrent = false,
                 },
@@ -170,7 +170,7 @@ namespace SampleApp.Prism.ViewModels
                 new CarouselModel
                 {
 
-                    Id =3,
+                    Id = 3,
                     ImageUrl = "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/zillow.svg",
                     IsCurrent = false,
                 },
@@ -178,14 +178,14 @@ namespace SampleApp.Prism.ViewModels
                 new CarouselModel
                 {
 
-                    Id =4,
+                    Id = 4,
                     ImageUrl = "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/cartman.svg",
                     IsCurrent = false,
                 },
                 new CarouselModel
                 {
 
-                    Id =5,
+                    Id = 5,
                     ImageUrl =  "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/mozilla.svg",
                     IsCurrent = false,
                 },

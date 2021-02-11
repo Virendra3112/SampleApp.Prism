@@ -10,7 +10,7 @@
              prism:ViewModelLocator.AutowireViewModel="True" >
     <AbsoluteLayout>
         <CarouselView
-            IsSwipeEnabled="True"
+            IsSwipeEnabled="True" 
             ItemsSource="{Binding CarouselList}"
             Position="{Binding CurrenrtImagePosition}"
             AbsoluteLayout.LayoutBounds="0,0,1,1"
@@ -18,20 +18,31 @@
             IndicatorView="indicatorview">
             <CarouselView.ItemTemplate>
                 <DataTemplate>
-                    <AbsoluteLayout BackgroundColor="Transparent" Padding="0">
+                    
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="LightGray">
+                            <!--<Image Source="nature1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="ScreenImage"></Image>-->
 
-                        <!--<Image Source="icon" HeightRequest="600" WidthRequest="430" Aspect="AspectFit"/>-->
+                        <ffSvg:SvgCachedImage BackgroundColor="Transparent" Margin="0"
+                                         Aspect="AspectFit"     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  
+                                Source="{Binding ImageUrl}"/>
+                    </StackLayout>
+
+                  
+                    
+                    <!--<AbsoluteLayout BackgroundColor="Transparent" Padding="0">
+
+                        --><!--<Image Source="icon" HeightRequest="600" WidthRequest="430" Aspect="AspectFit"/>--><!--
 
                         <ffSvg:SvgCachedImage BackgroundColor="Transparent" HeightRequest="600" WidthRequest="430" Margin="0"
                                          Aspect="AspectFit"      
                                 Source="{Binding ImageUrl}"/>
 
-                        <!--<local:CustomSVGControl ResourceId="{Binding ImageUrl}"
+                        --><!--<local:CustomSVGControl ResourceId="{Binding ImageUrl}"
                                                  HeightRequest="600" WidthRequest="430" 
-                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>-->
+                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>--><!--
 
 
-                    </AbsoluteLayout>
+                    </AbsoluteLayout>-->
                 </DataTemplate>
             </CarouselView.ItemTemplate>
         </CarouselView>
