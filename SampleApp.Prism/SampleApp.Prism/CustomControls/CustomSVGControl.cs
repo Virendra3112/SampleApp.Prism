@@ -71,7 +71,8 @@ namespace SampleApp.Prism.CustomControls
                 using (Stream stream = GetType().Assembly.GetManifestResourceStream(ResourceId))
                 {
                     if (ResourceId.Contains("http"))
-                    {// download the bytes
+                    {
+                        // download the bytes
                         var httpClient = new System.Net.Http.HttpClient();
                         var bytes = await httpClient.GetByteArrayAsync(ResourceId);
 
@@ -91,6 +92,8 @@ namespace SampleApp.Prism.CustomControls
                         _svgPicture = svg.Picture;
                     }
                 }
+
+                UpdateImageProperties(0, 0, 1);
             }
             catch (Exception ex)
             {
