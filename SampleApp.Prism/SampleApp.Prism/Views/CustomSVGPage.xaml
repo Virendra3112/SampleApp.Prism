@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:local="clr-namespace:SampleApp.Prism.CustomControls"
-             mc:Ignorable="d"
+             mc:Ignorable="d" 
              x:Class="SampleApp.Prism.Views.CustomSVGPage"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms" 
@@ -12,14 +12,15 @@
              prism:ViewModelLocator.AutowireViewModel="True" >
     <ContentPage.Content>
 
-        <Grid HorizontalOptions="FillAndExpand" BackgroundColor="Yellow"
+        <Grid HorizontalOptions="FillAndExpand" 
                 VerticalOptions="FillAndExpand">
             <!--<local:CustomSVGControl ResourceId="{Binding SvgUrl}"
                          HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>-->
 
 
-            <CarouselView BackgroundColor="Pink"
-            IsSwipeEnabled="True" 
+            <CarouselView 
+            IsSwipeEnabled="True"  VerticalScrollBarVisibility="Never"
+            IsScrollAnimated="True" IsBounceEnabled="True"
             ItemsSource="{Binding CarouselList}"
             Position="{Binding CurrenrtImagePosition}"
             AbsoluteLayout.LayoutBounds="0,0,1,1"
@@ -31,9 +32,12 @@
                         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="LightGray">
                             <!--<Image Source="nature1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="ScreenImage"></Image>-->
 
-                            <ffSvg:SvgCachedImage BackgroundColor="Transparent" Margin="0"
+                            <!--<ffSvg:SvgCachedImage BackgroundColor="Transparent" Margin="0"
                                          Aspect="AspectFit"     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  
-                                Source="{Binding ImageUrl}"/>
+                                Source="{Binding ImageUrl}"/>-->
+
+                            <local:CustomSVGControl ResourceId="{Binding ImageUrl}"
+                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                         </StackLayout>
 
                        
