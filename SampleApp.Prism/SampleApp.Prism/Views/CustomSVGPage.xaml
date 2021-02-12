@@ -24,7 +24,7 @@
             Position="{Binding CurrenrtImagePosition}"
             AbsoluteLayout.LayoutBounds="0,0,1,1"
             AbsoluteLayout.LayoutFlags="All"
-            >
+            IndicatorView="indicatorview" >
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
 
@@ -40,6 +40,14 @@
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
             </CarouselView>
+
+            <IndicatorView
+            x:Name="indicatorview"
+            VerticalOptions="End"
+            IndicatorColor="LightGray"
+            IndicatorSize="10"   
+            BackgroundColor="Yellow" Padding="10"
+            SelectedIndicatorColor="Black" />
         </Grid>
         <!--<StackLayout  BackgroundColor="Yellow" >
 

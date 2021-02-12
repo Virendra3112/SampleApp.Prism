@@ -51,9 +51,9 @@
             AbsoluteLayout.LayoutBounds="0.5,0.99,100,100"
             AbsoluteLayout.LayoutFlags="PositionProportional"
             IndicatorColor="LightGray"
-            IndicatorSize="10"
-           
+            IndicatorSize="10"           
             SelectedIndicatorColor="Black" />
+        
         <!--<Label  AbsoluteLayout.LayoutBounds="0.5,0.99,100,100"
             AbsoluteLayout.LayoutFlags="PositionProportional" Text="{Binding CurrenrtImagePosition, Mode=TwoWay}"/>-->
         <!--<Image Source="icon" HeightRequest="20" WidthRequest="20"
