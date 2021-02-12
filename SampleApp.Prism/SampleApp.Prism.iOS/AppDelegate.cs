@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using FFImageLoading;
+﻿using FFImageLoading;
 using FFImageLoading.Forms.Platform;
 using FFImageLoading.Svg.Forms;
 using Foundation;

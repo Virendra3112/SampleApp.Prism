@@ -13,7 +13,7 @@ namespace SampleApp.Prism
     public partial class App : PrismApplication
     {
         public App(IPlatformInitializer platformInitializer = null) : base(platformInitializer)
-        {            
+        {
         }
         public static Theme AppTheme { get; set; }
 
@@ -22,11 +22,10 @@ namespace SampleApp.Prism
 
         protected override void OnInitialized()
         {
+            //Forms.SetFlags("IndicatorView_Experimental");//todo: need to check
             InitializeComponent();
 
-            //add already loggged in check
-            //NavigationService.NavigateAsync(PageConstants.LoginPageKey);
-            //NavigationService.NavigateAsync(nameof(MainDeatilsPage) + "/" + nameof(NavigationPage) + "/" + nameof(FirstDetailsPage));
+
             var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
 
             // Width (in pixels)
@@ -35,7 +34,7 @@ namespace SampleApp.Prism
             // Height (in pixels)
             ScreenHeight = mainDisplayInfo.Height;
 
-          
+
 
             if (AppSettings.IsLoggedIn)
             {
