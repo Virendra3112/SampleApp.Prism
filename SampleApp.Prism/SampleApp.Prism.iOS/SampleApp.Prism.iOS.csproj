@@ -63,6 +63,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CustomRendrers\ThemeHelper.cs" />
     <Compile Include="Helpers\iOSInitializer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
@@ -161,9 +162,7 @@
       <Name>SampleApp.Prism</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CustomRendrers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BundleResource Include="Resources\icon.png" />
   </ItemGroup>
