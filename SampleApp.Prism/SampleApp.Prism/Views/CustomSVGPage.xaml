@@ -12,10 +12,34 @@
              prism:ViewModelLocator.AutowireViewModel="True" >
     <ContentPage.Content>
 
-        <Grid HorizontalOptions="FillAndExpand"
+        <Grid HorizontalOptions="FillAndExpand" BackgroundColor="Yellow"
                 VerticalOptions="FillAndExpand">
-            <local:CustomSVGControl ResourceId="{Binding SvgUrl}"
-                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <!--<local:CustomSVGControl ResourceId="{Binding SvgUrl}"
+                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>-->
+
+
+            <CarouselView BackgroundColor="Pink"
+            IsSwipeEnabled="True" 
+            ItemsSource="{Binding CarouselList}"
+            Position="{Binding CurrenrtImagePosition}"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            >
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="LightGray">
+                            <!--<Image Source="nature1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="ScreenImage"></Image>-->
+
+                            <ffSvg:SvgCachedImage BackgroundColor="Transparent" Margin="0"
+                                         Aspect="AspectFit"     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  
+                                Source="{Binding ImageUrl}"/>
+                        </StackLayout>
+
+                       
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
         </Grid>
         <!--<StackLayout  BackgroundColor="Yellow" >
 
