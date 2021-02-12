@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:local="clr-namespace:SampleApp.Prism.CustomControls"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" Title="Carousel View Page with SVG" x:Name="self"
              x:Class="SampleApp.Prism.Views.CustomSVGPage"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms" 
@@ -53,13 +53,6 @@
             BackgroundColor="Yellow" Padding="10"
             SelectedIndicatorColor="Black" />
         </Grid>
-        <!--<StackLayout  BackgroundColor="Yellow" >
-
-            <local:CustomSVGControl ResourceId="{Binding SvgUrl}"
-                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-            
-            <Label Text="SVG page"/>
-
-        </StackLayout>-->
+       
     </ContentPage.Content>
 </ContentPage>
