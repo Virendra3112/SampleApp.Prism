@@ -2,8 +2,14 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:SampleApp.Prism.Views"
+            mc:Ignorable="d" Title="Tabs Sample"
              x:Class="SampleApp.Prism.Views.CustomTabsPage">
+
+    <TabbedPage.Children>
+        <local:FirstTabPage/>
+        <local:SecondTabPage/>
+    </TabbedPage.Children>
     
 </TabbedPage>
+    
