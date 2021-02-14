@@ -1,10 +1,12 @@
 ﻿using Prism;
 using Prism.Ioc;
+using Prism.Navigation;
 using Prism.Unity;
 using SampleApp.Prism.Helpers;
 using SampleApp.Prism.Models.Enum;
 using SampleApp.Prism.ViewModels;
 using SampleApp.Prism.Views;
+using Unity;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -24,6 +26,8 @@ namespace SampleApp.Prism
         {
             //Forms.SetFlags("IndicatorView_Experimental");//todo: need to check
             InitializeComponent();
+
+           //Container.GetContainer().RegisterInstance<INavigationService>(NavigationService, new Unity.Lifetime.SingletonLifetimeManager());
 
 
             var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
@@ -62,6 +66,12 @@ namespace SampleApp.Prism
             containerRegistry.RegisterForNavigation<CustomSVGPage, CustomSVGPageViewModel>();
             containerRegistry.RegisterForNavigation<FirstTabPage, FirstTabPageViewModel>();
             containerRegistry.RegisterForNavigation<SecondTabPage, SecondTabPageViewModel>();
+
+
+            //todo:
+            //containerRegistry.RegisterForNavigation<HomePage>();
+            //containerRegistry.GetContainer().RegisterType<HomePageViewModel>(new Unity.Lifetime.ContainerControlledLifetimeManager());
+
         }
     }
 }
