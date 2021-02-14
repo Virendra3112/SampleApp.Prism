@@ -1,5 +1,6 @@
 ﻿using Acr.UserDialogs;
 using Plugin.Connectivity;
+using Prism;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
@@ -10,7 +11,7 @@ using System.Runtime.CompilerServices;
 
 namespace SampleApp.Prism.ViewModels
 {
-    public class BaseViewModel : BindableBase,INotifyPropertyChanged
+    public class BaseViewModel : BindableBase, INotifyPropertyChanged, IActiveAware
     {
         private string _height;
         public string Height
@@ -38,7 +39,7 @@ namespace SampleApp.Prism.ViewModels
         }
 
         bool isBusy;
-        
+
         public bool IsBusy
         {
             get
@@ -63,6 +64,20 @@ namespace SampleApp.Prism.ViewModels
                 _isNetworkAvailable = value;
                 RaisePropertyChanged();
             }
+        }
+        private bool _isActive;
+        public bool IsActive
+        {
+            get { return _isActive; }
+            set
+            {
+                SetProperty(ref _isActive, value, RaiseIsActiveChanged);
+            }
+            //set
+            //{
+            //    _isActive = value;
+            //    RaisePropertyChanged();
+            //}
         }
 
         public readonly INavigationService _navigationService;
@@ -100,7 +115,7 @@ namespace SampleApp.Prism.ViewModels
         }
 
 
-      
+
         public void CheckConnectivity()
         {
             try
@@ -113,7 +128,7 @@ namespace SampleApp.Prism.ViewModels
 
                     if (IsNetworkAvailable)
                     {
-                        UserDialogs.Instance.Toast("Internet connected");                       
+                        UserDialogs.Instance.Toast("Internet connected");
                     }
 
                     else
@@ -134,9 +149,10 @@ namespace SampleApp.Prism.ViewModels
 
 #pragma warning disable CS0108 // Member hides inherited member; missing new keyword
         public event PropertyChangedEventHandler PropertyChanged;
+        public event EventHandler IsActiveChanged;
 #pragma warning restore CS0108 // Member hides inherited member; missing new keyword
 
-       
+
         protected new void RaisePropertyChanged([CallerMemberName]  string propertyName = "")
         {
             if (PropertyChanged != null)
@@ -147,5 +163,11 @@ namespace SampleApp.Prism.ViewModels
 
 
         #endregion
+
+
+        protected virtual void RaiseIsActiveChanged()
+        {
+            IsActiveChanged?.Invoke(this, EventArgs.Empty);
+        }
     }
 }
