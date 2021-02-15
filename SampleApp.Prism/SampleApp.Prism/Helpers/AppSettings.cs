@@ -32,5 +32,12 @@ namespace SampleApp.Prism.Helpers
             set => Settings.AddOrUpdateValue(nameof(UserEmail), value);
         }
 
+        public static bool IsLocalAuthEnabled
+        {
+            get => Settings.GetValueOrDefault(nameof(IsLocalAuthEnabled), DefaultIsLoggedIn);
+            set => Settings.AddOrUpdateValue(nameof(IsLocalAuthEnabled), value);
+        }
+        
+
     }
 }
