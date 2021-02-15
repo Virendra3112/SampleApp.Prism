@@ -2,6 +2,7 @@
 using FFImageLoading.Forms.Platform;
 using FFImageLoading.Svg.Forms;
 using Foundation;
+using SampleApp.Prism.Helpers;
 using SampleApp.Prism.iOS.Helpers;
 using UIKit;
 using Xamarin.Forms;
@@ -33,8 +34,8 @@ namespace SampleApp.Prism.iOS
             {
                 VerboseLogging = false,
                 VerbosePerformanceLogging = false,
-                VerboseMemoryCacheLogging=false,
-                VerboseLoadingCancelledLogging=false,
+                VerboseMemoryCacheLogging = false,
+                VerboseLoadingCancelledLogging = false,
 
             };
 
@@ -44,6 +45,25 @@ namespace SampleApp.Prism.iOS
             LoadApplication(new App(new iOSInitializer()));
 
             return base.FinishedLaunching(app, options);
+        }
+
+        public override void WillEnterForeground(UIApplication application)
+        {
+            if (!AppSettings.IsLocalAuthEnabled)
+            {
+                return;
+            }
+
+            iOSAuthHelper.Authenticate(null, // do not do anything on success
+            () =>
+            {
+                // show View Controller that requires authentication
+                InvokeOnMainThread(() =>
+                        {
+                            //var localAuthViewController = new LocalAuthViewController();
+                            //Window.RootViewController.ShowViewController(localAuthViewController, null);
+                        });
+            });
         }
     }
 }
