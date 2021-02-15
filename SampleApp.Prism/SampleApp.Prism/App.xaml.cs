@@ -14,7 +14,7 @@ namespace SampleApp.Prism
 {
     public partial class App : PrismApplication
     {
-        public App(IPlatformInitializer platformInitializer = null) : base(platformInitializer)
+        public App(IPlatformInitializer platformInitializer) : base(platformInitializer)
         {
         }
         public static Theme AppTheme { get; set; }
@@ -27,7 +27,8 @@ namespace SampleApp.Prism
             //Forms.SetFlags("IndicatorView_Experimental");//todo: need to check
             InitializeComponent();
 
-           //Container.GetContainer().RegisterInstance<INavigationService>(NavigationService, new Unity.Lifetime.SingletonLifetimeManager());
+            //Todo
+            //Container.GetContainer().RegisterInstance<INavigationService>(NavigationService, new Unity.Lifetime.SingletonLifetimeManager());
 
 
             var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
