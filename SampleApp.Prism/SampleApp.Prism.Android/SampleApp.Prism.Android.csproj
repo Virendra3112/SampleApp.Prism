@@ -85,6 +85,7 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomRendrers\AuthService.cs" />
     <Compile Include="CustomRendrers\ThemeHelper.cs" />
     <Compile Include="Helpers\AndroidInitializer.cs" />
     <Compile Include="MainActivity.cs" />
