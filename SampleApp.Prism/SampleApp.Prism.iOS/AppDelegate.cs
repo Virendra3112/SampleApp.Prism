@@ -47,23 +47,23 @@ namespace SampleApp.Prism.iOS
             return base.FinishedLaunching(app, options);
         }
 
-        public override void WillEnterForeground(UIApplication application)
-        {
-            if (!AppSettings.IsLocalAuthEnabled)
-            {
-                return;
-            }
+        //public override void WillEnterForeground(UIApplication application)
+        //{
+        //    if (!AppSettings.IsLocalAuthEnabled)
+        //    {
+        //        return;
+        //    }
 
-            iOSAuthHelper.Authenticate(null, // do not do anything on success
-            () =>
-            {
-                // show View Controller that requires authentication
-                InvokeOnMainThread(() =>
-                        {
-                            //var localAuthViewController = new LocalAuthViewController();
-                            //Window.RootViewController.ShowViewController(localAuthViewController, null);
-                        });
-            });
-        }
+        //    iOSAuthHelper.Authenticate(null, // do not do anything on success
+        //    () =>
+        //    {
+        //        // show View Controller that requires authentication
+        //        InvokeOnMainThread(() =>
+        //                {
+        //                    //var localAuthViewController = new LocalAuthViewController();
+        //                    //Window.RootViewController.ShowViewController(localAuthViewController, null);
+        //                });
+        //    });
+        //}
     }
 }
