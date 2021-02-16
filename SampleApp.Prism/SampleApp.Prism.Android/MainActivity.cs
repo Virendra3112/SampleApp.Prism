@@ -13,8 +13,12 @@ namespace SampleApp.Prism.Droid
     [Activity(Label = "SampleApp.Prism", Icon = "@mipmap/icon", Theme = "@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        public static Activity FormsContext { get; set; }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            FormsContext = this;
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
