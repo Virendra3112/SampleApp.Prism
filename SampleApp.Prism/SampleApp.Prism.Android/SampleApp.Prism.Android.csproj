@@ -88,6 +88,7 @@
     <Compile Include="CustomRendrers\AuthService.cs" />
     <Compile Include="CustomRendrers\BiometricHandler.cs" />
     <Compile Include="CustomRendrers\ThemeHelper.cs" />
+    <Compile Include="CustomRendrers\TouchIdAuthService.cs" />
     <Compile Include="Helpers\AndroidInitializer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
