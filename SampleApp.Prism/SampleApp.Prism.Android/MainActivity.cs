@@ -7,6 +7,8 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using SampleApp.Prism.Droid.Helpers;
+using Android;
+using Android.Util;
 
 namespace SampleApp.Prism.Droid
 {
@@ -36,6 +38,29 @@ namespace SampleApp.Prism.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+            if (requestCode == 202)
+            {
+                Log.Info("Biometric", "Received response for Biometric Permission request");
+
+                if ((grantResults.Length == 1) && (grantResults[0] == Permission.Granted))
+                {
+                    Log.Info("Biometric", "Biomtric permission has now been granted");
+
+                }
+                else
+                {
+                    Log.Info("Biometric", "Biometric permission is not granted");
+                    if (Build.VERSION.SdkInt >= BuildVersionCodes.P)
+                    {
+                        string[] reruiredPermission = new string[] { Manifest.Permission.UseBiometric };
+                    }
+                    else
+                    {
+                        string[] reruiredPermission = new string[] { Manifest.Permission.UseFingerprint };
+                    }
+                }
+            }
         }
     }
 }
