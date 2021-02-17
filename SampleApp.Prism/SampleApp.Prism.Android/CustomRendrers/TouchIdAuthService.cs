@@ -12,7 +12,9 @@ using Java.Security;
 using Java.Security.Spec;
 using Xamarin.Forms;
 using SampleApp.Prism.CustomControls;
+using SampleApp.Prism.Droid.CustomRendrers;
 
+[assembly: Xamarin.Forms.Dependency(typeof(TouchIdAuthService))]
 namespace SampleApp.Prism.Droid.CustomRendrers
 {
     public class TouchIdAuthService : IBiometricPieAuthenticate
