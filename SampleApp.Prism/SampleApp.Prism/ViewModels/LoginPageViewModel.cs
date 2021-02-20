@@ -35,12 +35,12 @@ namespace SampleApp.Prism.ViewModels
         public ICommand SubmitCommand { protected set; get; }
         public ICommand LoginCommand { get; set; }
 
-        INavigationService _navigationService;
+        //INavigationService _navigationService;
         public LoginPageViewModel(INavigationService navigationService, IDialogService dialogService, IPageDialogService pageDialogService)
             : base(navigationService, dialogService, pageDialogService)
         {
             LoginCommand = new Command(LoginClicked);
-            _navigationService = navigationService;
+           // _navigationService = navigationService;
         }
 
 
@@ -50,6 +50,9 @@ namespace SampleApp.Prism.ViewModels
             try
             {
                 AppSettings.IsLoggedIn = true;
+
+                //show fingerprint page here 
+                AppSettings.IsFingerprintSet = true;
 
                 await _navigationService.NavigateAsync(nameof(MainDeatilsPage) + "/" + nameof(NavigationPage) + "/" + nameof(FirstDetailsPage));
 
