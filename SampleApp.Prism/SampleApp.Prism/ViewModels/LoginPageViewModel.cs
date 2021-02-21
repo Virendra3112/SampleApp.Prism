@@ -2,9 +2,12 @@
 using Prism.Services;
 using Prism.Services.Dialogs;
 using Prism.Unity;
+using SampleApp.Prism.CustomControls;
 using SampleApp.Prism.Helpers;
+using SampleApp.Prism.Models.Enum;
 using SampleApp.Prism.Views;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -55,6 +58,25 @@ namespace SampleApp.Prism.ViewModels
 
                 if (result)
                 {
+
+                    if (Device.RuntimePlatform == Device.iOS)
+                    {
+                       var _authType = DependencyService.Get<IAuthService>().GetAuthenticationType();
+                        if (!_authType.Equals("None"))
+                        {
+                            if (_authType.Equals(AuthType.TouchId) || _authType.Equals(AuthType.FaceId))
+                            {
+                                GetAuthResults(_authType);
+                            }
+                        }
+                    }
+
+                    if (Device.RuntimePlatform == Device.Android)
+                    {
+                       //todo
+                    }
+
+
                     //show fingerprint page here 
                     AppSettings.IsFingerprintSet = true;
                 }
@@ -70,6 +92,26 @@ namespace SampleApp.Prism.ViewModels
             catch (Exception ex)
             {
                 await _pageDialogService.DisplayAlertAsync("Error", "Something went wrong" + ex.Message, "Ok");
+            }
+        }
+
+        private async Task GetAuthResults(string authType)
+        {
+            var result = await DependencyService.Get<IAuthService>().AuthenticateUserIDWithTouchID();
+            if (result)
+            {
+                if (authType.Equals("TouchId"))
+                {
+                   
+                }
+                else if (authType.Equals("FaceId"))
+                {
+                    
+                }
+            }
+            else
+            {
+                
             }
         }
     }
