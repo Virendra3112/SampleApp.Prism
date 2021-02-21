@@ -40,7 +40,7 @@ namespace SampleApp.Prism.ViewModels
             : base(navigationService, dialogService, pageDialogService)
         {
             LoginCommand = new Command(LoginClicked);
-           // _navigationService = navigationService;
+            // _navigationService = navigationService;
         }
 
 
@@ -51,8 +51,18 @@ namespace SampleApp.Prism.ViewModels
             {
                 AppSettings.IsLoggedIn = true;
 
-                //show fingerprint page here 
-                AppSettings.IsFingerprintSet = true;
+                var result = await _pageDialogService.DisplayAlertAsync("Security", "Do you want to enable fingerprint/faceId ?", "Yes", "NO");
+
+                if (result)
+                {
+                    //show fingerprint page here 
+                    AppSettings.IsFingerprintSet = true;
+                }
+                else
+                {
+                    AppSettings.IsFingerprintSet = false;
+                }
+
 
                 await _navigationService.NavigateAsync(nameof(MainDeatilsPage) + "/" + nameof(NavigationPage) + "/" + nameof(FirstDetailsPage));
 
