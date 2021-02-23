@@ -54,26 +54,55 @@ namespace SampleApp.Prism.ViewModels
             {
                 AppSettings.IsLoggedIn = true;
 
-                var result = await _pageDialogService.DisplayAlertAsync("Security", "Do you want to enable fingerprint/faceId ?", "Yes", "NO");
+                var result = await _pageDialogService.DisplayAlertAsync("Security Alert", "Do you want to enable fingerprint/faceId ?", "YES", "NO");
 
                 if (result)
                 {
 
                     if (Device.RuntimePlatform == Device.iOS)
                     {
-                       var _authType = DependencyService.Get<IAuthService>().GetAuthenticationType();
+                        var _authType = DependencyService.Get<IAuthService>().GetAuthenticationType();
                         if (!_authType.Equals("None"))
                         {
                             if (_authType.Equals(AuthType.TouchId) || _authType.Equals(AuthType.FaceId))
                             {
-                                GetAuthResults(_authType);
+                               await GetAuthResults(_authType);
                             }
                         }
                     }
 
                     if (Device.RuntimePlatform == Device.Android)
                     {
-                       //todo
+                        //todo
+
+                        if (DependencyService.Get<IBiometricPieAuthenticate>().CheckSDKGreater29())
+                        {
+                            var res = DependencyService.Get<IAuthService>().fingerprintEnabled();
+
+                            if (res)
+                            {
+                                //subscribe for biometricpromt response from Android
+                                MessagingCenter.Subscribe<object>("BiometricPrompt", "Success", (sender) =>
+                                {
+                                    MessagingCenter.Unsubscribe<object>("BiometricPrompt", "Success");
+                                    
+                                });
+                                MessagingCenter.Subscribe<object>("BiometricPrompt", "Fail", (sender) =>
+                                {
+                                    MessagingCenter.Unsubscribe<object>("BiometricPrompt", "Fail");
+                                    
+                                });
+
+                                //call biomtricprompt dependency service
+                                DependencyService.Get<IBiometricPieAuthenticate>().RegisterOrAuthenticate();
+                            }
+
+                            else
+                            {
+                                //todo
+                            }
+
+                        }
                     }
 
 
@@ -102,16 +131,16 @@ namespace SampleApp.Prism.ViewModels
             {
                 if (authType.Equals("TouchId"))
                 {
-                   
+
                 }
                 else if (authType.Equals("FaceId"))
                 {
-                    
+
                 }
             }
             else
             {
-                
+
             }
         }
     }
