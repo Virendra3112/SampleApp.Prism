@@ -67,6 +67,7 @@ namespace SampleApp.Prism
             containerRegistry.RegisterForNavigation<CustomSVGPage, CustomSVGPageViewModel>();
             containerRegistry.RegisterForNavigation<FirstTabPage, FirstTabPageViewModel>();
             containerRegistry.RegisterForNavigation<SecondTabPage, SecondTabPageViewModel>();
+            containerRegistry.RegisterForNavigation<DeviceAuthDetailsPage, DeviceAuthDetailsPageViewModel>();
 
 
             //todo:
