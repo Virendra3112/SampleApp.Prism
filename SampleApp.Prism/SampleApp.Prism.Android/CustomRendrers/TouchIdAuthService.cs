@@ -116,9 +116,9 @@ namespace SampleApp.Prism.Droid.CustomRendrers
 
 
             biometricPrompt = new BiometricPrompt.Builder(activity)
-                .SetDescription("Never Been Easier")
-                .SetTitle("Biometric Prompt Authentication")
-                .SetSubtitle("Please allow Xamarin Life to authenticate")
+                .SetDescription("Please allow Sample App to authenticate")
+                .SetTitle("Biometric Authentication")
+                ///.SetSubtitle("Please allow Sample App to authenticate")
                 .SetNegativeButton("Cancel", activity.MainExecutor, negativeButtonListener)
                 .Build();
 
