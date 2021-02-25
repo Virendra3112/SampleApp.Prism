@@ -9,7 +9,7 @@
              x:Class="SampleApp.Prism.Views.DeviceAuthDetailsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Label Text="{Binding BindingContext.AuthDetails, Source={x:Reference self}}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
