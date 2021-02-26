@@ -34,5 +34,9 @@
     <string>SampleApp.Prism</string>
     <key>XSAppIconAssets</key>
     <string>Assets.xcassets/AppIcon.appiconset</string>
+  <key>NSFaceIDUsageDescription</key>
+  <string>Please provide your faceid to this app to authenticate</string>
+  
+  
 </dict>
 </plist>
