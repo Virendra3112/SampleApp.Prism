@@ -13,6 +13,21 @@ using Android.Util;
 namespace SampleApp.Prism.Droid
 {
     [Activity(Label = "SampleApp.Prism", Icon = "@mipmap/icon", Theme = "@style/MainTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+
+
+    //Invite App Link
+    [IntentFilter(new[] { Android.Content.Intent.ActionView },
+                  DataScheme = "https",
+                  DataHost = "xamboy.com",
+                  AutoVerify = true,
+                  Categories = new[] { Android.Content.Intent.CategoryDefault, Android.Content.Intent.CategoryBrowsable })]
+    [IntentFilter(new[] { Android.Content.Intent.ActionView },
+                  DataScheme = "http",
+                  DataHost = "xamboy.com",
+                  AutoVerify = true,
+                  Categories = new[] { Android.Content.Intent.CategoryDefault, Android.Content.Intent.CategoryBrowsable })]
+
+
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         public static Activity FormsContext { get; set; }

@@ -34,6 +34,7 @@ namespace SampleApp.Prism.ViewModels
                 }
                 if (Device.RuntimePlatform == Device.Android)
                 {
+                    //Todo:
                     //var _authType = DependencyService.Get<IAuthService>().GetAuthenticationType();
                     AuthDetails = "Auth Type: ";
 
