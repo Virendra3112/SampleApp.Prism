@@ -80,6 +80,7 @@ namespace SampleApp.Prism
 
         protected override void OnAppLinkRequestReceived(Uri uri)
         {
+            //add code here after launching app from browser
             if (uri.Host.EndsWith("xamboy.com", StringComparison.OrdinalIgnoreCase))
             {
 
