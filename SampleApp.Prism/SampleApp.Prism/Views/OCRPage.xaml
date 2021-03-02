@@ -6,8 +6,8 @@
              prism:ViewModelLocator.AutowireViewModel="True" >
     <ContentPage.Content>
         <StackLayout>
-            <Button Text="Read data"/> 
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Button Text="Read data" Command="{Binding ReadDataCommand}"/>
+            <Label Text="{Binding ImageText}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
