@@ -9,6 +9,7 @@ using Android.OS;
 using SampleApp.Prism.Droid.Helpers;
 using Android;
 using Android.Util;
+using Plugin.CurrentActivity;
 
 namespace SampleApp.Prism.Droid
 {
@@ -43,6 +44,8 @@ namespace SampleApp.Prism.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
             
