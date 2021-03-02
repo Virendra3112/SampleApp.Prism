@@ -21,11 +21,11 @@ namespace SampleApp.Prism.Droid
                   DataHost = "xamboy.com",
                   AutoVerify = true,
                   Categories = new[] { Android.Content.Intent.CategoryDefault, Android.Content.Intent.CategoryBrowsable })]
-    //[IntentFilter(new[] { Android.Content.Intent.ActionView },
-    //              DataScheme = "http",
-    //              DataHost = "xamboy.com",
-    //              AutoVerify = true,
-    //              Categories = new[] { Android.Content.Intent.CategoryDefault, Android.Content.Intent.CategoryBrowsable })]
+    [IntentFilter(new[] { Android.Content.Intent.ActionView },
+                  DataScheme = "http",
+                  DataHost = "xamboy.com",
+                  AutoVerify = true,
+                  Categories = new[] { Android.Content.Intent.CategoryDefault, Android.Content.Intent.CategoryBrowsable })]
 
 
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
