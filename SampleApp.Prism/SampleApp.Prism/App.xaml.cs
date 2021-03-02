@@ -69,6 +69,7 @@ namespace SampleApp.Prism
             containerRegistry.RegisterForNavigation<FirstTabPage, FirstTabPageViewModel>();
             containerRegistry.RegisterForNavigation<SecondTabPage, SecondTabPageViewModel>();
             containerRegistry.RegisterForNavigation<DeviceAuthDetailsPage, DeviceAuthDetailsPageViewModel>();
+            containerRegistry.RegisterForNavigation<OCRPage, OCRPageViewModel>();
 
 
             //todo:
