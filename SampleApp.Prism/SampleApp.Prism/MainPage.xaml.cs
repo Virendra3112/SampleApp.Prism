@@ -17,5 +17,10 @@ namespace SampleApp.Prism
         {
             InitializeComponent();
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+        }
     }
 }
