@@ -1,4 +1,4 @@
-﻿using Patagames.Ocr;
+﻿using IronOcr;
 using System;
 
 namespace ImageReader
@@ -7,20 +7,27 @@ namespace ImageReader
     {
         static void Main(string[] args)
         {
-            Class1 class1 = new Class1();
-            class1.convertImageToText();
+
+
         }
 
-        public void convertImageToText()
+        public string ReadData(string path)
         {
-            using(var api = OcrApi.Create())
+            string result = null;
+            OcrResult Result = null;
+            try
             {
-                api.Init("English");
-
-                string tt = api.GetTextFromImage("C:\\Users\\viren\\OneDrive\\Pictures\\Images");
-                Console.WriteLine(tt);
-                Console.Read();
+                Result = new IronTesseract().Read(path);//("C:\\test.png");
+                Console.WriteLine(Result.Text);
             }
+            catch (Exception)
+            {
+            }
+
+            result = Result.Text;
+            return result;
         }
+
+
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Prism;
 using Prism.Ioc;
+using Tesseract;
+using Tesseract.Droid;
 
 namespace SampleApp.Prism.Droid.Helpers
 {
@@ -7,6 +9,8 @@ namespace SampleApp.Prism.Droid.Helpers
     {
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.Register<ITesseractApi, TesseractApi>();
+
         }
     }
 }

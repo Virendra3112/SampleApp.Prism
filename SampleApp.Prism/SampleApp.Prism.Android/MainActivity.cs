@@ -10,6 +10,7 @@ using SampleApp.Prism.Droid.Helpers;
 using Android;
 using Android.Util;
 using Plugin.CurrentActivity;
+using Tesseract.Droid;
 
 namespace SampleApp.Prism.Droid
 {
@@ -44,6 +45,9 @@ namespace SampleApp.Prism.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            var api = new TesseractApi(this, AssetsDeployment.OncePerVersion);
+
 
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
