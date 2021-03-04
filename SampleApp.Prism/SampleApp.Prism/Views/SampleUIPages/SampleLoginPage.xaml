@@ -1,12 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SampleApp.Prism.Views.SampleUIPages.SampleLoginPage">
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             NavigationPage.HasNavigationBar="False" BackgroundColor="#ffffff"
+             x:Class="SampleApp.Prism.Views.SampleUIPages.SampleLoginPage"
+             xmlns:local="clr-namespace:SampleApp.Prism.CustomControls"
+             >
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <AbsoluteLayout>
+        <Grid
+            AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+            RowSpacing="0" ColumnSpacing="0" 
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="3*"/>                
+                
+            </Grid.RowDefinitions>
+            <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+                CornerRadius="25" Grid.Row="0" BackgroundColor="#005ae8">
+
+                </Frame>
+
+
+            <StackLayout Grid.Row="1" BackgroundColor="White"/>
+            
+            
+
+        </Grid>
+
+            <Label  AbsoluteLayout.LayoutBounds=".1,.2,200,400" AbsoluteLayout.LayoutFlags="PositionProportional"
+                Text="We are here" TextColor="White" FontSize="Large" FontAttributes="Bold" />
+            
+            <Label  AbsoluteLayout.LayoutBounds=".1,.3,200,400" AbsoluteLayout.LayoutFlags="PositionProportional"
+                Text="to help you welcome" TextColor="White" FontSize="Medium"  />
+            <Label  AbsoluteLayout.LayoutBounds=".1,.4,200,400" AbsoluteLayout.LayoutFlags="PositionProportional"
+                Text="and manage" TextColor="White" FontSize="Medium"  />
+            <Label  AbsoluteLayout.LayoutBounds=".1,.5,200,400" AbsoluteLayout.LayoutFlags="PositionProportional"
+                Text="visitors anywhere." TextColor="White" FontSize="Medium"  />
+
+            <Frame
+                AbsoluteLayout.LayoutBounds=".5,.75,400,350" AbsoluteLayout.LayoutFlags="PositionProportional"
+                BackgroundColor="White" CornerRadius="30" Margin="10" >
+
+                <local:CustomLoginLayout/>
+
+            </Frame>
+
+            <Button  AbsoluteLayout.LayoutBounds=".5,.88,100,50" AbsoluteLayout.LayoutFlags="PositionProportional"
+                Text="Login" TextColor="White" BackgroundColor="#005ae8" FontSize="Medium"  />
+
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
