@@ -65,5 +65,27 @@ namespace SampleApp.Prism.iOS
         //                });
         //    });
         //}
+
+        public override bool OpenUrl(UIApplication application, NSUrl url, string sourceApplication, NSObject annotation)
+        {
+            //https://xamarincodes.com/2020/04/18/deep-links-in-xamarin-forms/
+            //Custom deep linking
+            // < key > CFBundleURLTypes </ key >
+            //< array >
+            //  < dict >
+            //    < key > CFBundleURLName </ key >
+            //    < string > DeepLinking </ string >
+            //    < key > CFBundleURLSchemes </ key >
+            //    < array >
+            //      < string > TestApp </ string >
+            //    </ array >
+            //  </ dict >
+            //</ array >
+
+            return true;
+            //return base.OpenUrl(application, url, sourceApplication, annotation);
+        }
+
+
     }
 }
