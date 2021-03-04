@@ -4,6 +4,7 @@ using Prism.Services;
 using Prism.Services.Dialogs;
 using SampleApp.Prism.Models;
 using SampleApp.Prism.Views;
+using SampleApp.Prism.Views.SampleUIPages;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -33,6 +34,7 @@ namespace SampleApp.Prism.ViewModels
             CategoryList.Add(new MyMenuItem { PageName = "Carousel View", Icon = "icon.png" });
             CategoryList.Add(new MyMenuItem { PageName = "SVG Scale", Icon = "icon.png" });
             CategoryList.Add(new MyMenuItem { PageName = "OCR", Icon = "icon.png" });
+            CategoryList.Add(new MyMenuItem { PageName = "SampleUI", Icon = "icon.png" });
         }
 
         private async void MenuSelected(object obj)
@@ -53,6 +55,10 @@ namespace SampleApp.Prism.ViewModels
 
                         case ("OCR"):
                         await _navigationService.NavigateAsync(nameof(OCRPage));
+                        break;
+
+                        case ("SampleUI"):
+                        await _navigationService.NavigateAsync(nameof(SampleLoginPage));
                         break;
 
                 }
