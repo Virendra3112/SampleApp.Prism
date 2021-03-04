@@ -46,8 +46,9 @@ namespace SampleApp.Prism.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-            var api = new TesseractApi(this, AssetsDeployment.OncePerVersion);
+            //var api = new TesseractApi(this, AssetsDeployment.OncePerVersion);
 
+            Acr.UserDialogs.UserDialogs.Init(this);
 
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
 

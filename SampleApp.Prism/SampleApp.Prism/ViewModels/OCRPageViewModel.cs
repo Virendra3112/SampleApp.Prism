@@ -1,5 +1,4 @@
-﻿using ImageReader;
-using IronOcr;
+﻿using Acr.UserDialogs;
 using Plugin.Media;
 using Prism.Navigation;
 using Prism.Services;
@@ -41,7 +40,6 @@ namespace SampleApp.Prism.ViewModels
         {
             try
             {
-
                 await CrossMedia.Current.Initialize();
 
                 if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
@@ -61,55 +59,26 @@ namespace SampleApp.Prism.ViewModels
 
                 else
                 {
-                    IsBusy = true;
-                    var dd = await DependencyService.Resolve<IOCR>()
+                    //IsBusy = true;
+                    UserDialogs.Instance.ShowLoading("Loading");
+                    var _text = await DependencyService.Resolve<IOCR>()
                         .ReadImage(file.Path);
 
-                    ImageText = dd;
+                    ImageText = _text;
+                    UserDialogs.Instance.HideLoading();
 
-                    //var Result = new IronTesseract().Read(file.Path);
-                    //Console.WriteLine(Result.Text);
-
-                    //var test = new Class1();
-                    //var re = test.ReadData(file.Path);
-
-
-
-
-                    //ImageText = re;
-                    //var test = DependencyService.Resolve<ITesseractApi>().Init("eng");
-
-
-                    //if (!_tesseract.Initialized)
-                    //{
-                    //    var initialised = await _tesseract.Init("eng");
-                    //    if (!initialised)
-                    //        return;
-                    //}
-
-                    //if (!await _tesseract.SetImage(file.Path))
-                    //    return;
-
-                    //var words = _tesseract.Results(PageIteratorLevel.Word);
-                    //var symbols = _tesseract.Results(PageIteratorLevel.Symbol);
-                    //var blocks = _tesseract.Results(PageIteratorLevel.Block);
-                    //var paragraphs = _tesseract.Results(PageIteratorLevel.Paragraph);
-                    //var lines = _tesseract.Results(PageIteratorLevel.Textline);
                 }
-
-                //await DisplayAlert("File Location", file.Path, "OK");
-
             }
             catch (Exception ex)
             {
                 ImageText = ex.Message;
+                UserDialogs.Instance.HideLoading();
             }
 
             finally
             {
-                IsBusy = false;
+               // IsBusy = false;
             }
-
         }
     }
 }
