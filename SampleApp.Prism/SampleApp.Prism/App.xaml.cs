@@ -5,7 +5,9 @@ using Prism.Unity;
 using SampleApp.Prism.Helpers;
 using SampleApp.Prism.Models.Enum;
 using SampleApp.Prism.ViewModels;
+using SampleApp.Prism.ViewModels.SampleUIViewModel;
 using SampleApp.Prism.Views;
+using SampleApp.Prism.Views.SampleUIPages;
 using System;
 using Tesseract;
 using Unity;
@@ -71,6 +73,10 @@ namespace SampleApp.Prism
             containerRegistry.RegisterForNavigation<SecondTabPage, SecondTabPageViewModel>();
             containerRegistry.RegisterForNavigation<DeviceAuthDetailsPage, DeviceAuthDetailsPageViewModel>();
             containerRegistry.RegisterForNavigation<OCRPage, OCRPageViewModel>();
+
+            //*************** SampleUI pages **************************************
+
+            containerRegistry.RegisterForNavigation<SampleLoginPage, SampleLoginPageViewModel>();
 
 
             //App.RegisterType<ILogger, Logger>();
