@@ -1,10 +1,80 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SampleApp.Prism.CustomControls"
              x:Class="SampleApp.Prism.CustomControls.CustomLoginLayout">
   <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="6*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+                <Label HorizontalTextAlignment="Center" Text="Login" FontSize="Medium"  TextColor="{DynamicResource blackColor}"/>
+                <BoxView HorizontalOptions="CenterAndExpand" HeightRequest="3" BackgroundColor="Red"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+                <Label HorizontalTextAlignment="Center" Text="Signup" FontSize="Medium" TextColor="{DynamicResource blackColor}"/>
+                <BoxView HorizontalOptions="CenterAndExpand" HeightRequest="3" BackgroundColor="Green"/>
+            </StackLayout>
+
+            <local:CustomRoundedCornerEntry Grid.Row="1" Grid.ColumnSpan="3"
+                CornerRadius="12"  
+                             IsCurvedCornersEnabled="True"  
+                             BorderColor="{DynamicResource GrayTextColor}"      
+                             HorizontalTextAlignment="Start"  
+                             FontSize="Medium"  
+                             Placeholder="UserName"  
+                             PlaceholderColor="{DynamicResource GrayTextColor}"  
+                             TextColor="{DynamicResource blackColor}"  
+                             />
+            
+            
+            <local:CustomRoundedCornerEntry Grid.Row="2" Grid.ColumnSpan="3"
+                CornerRadius="12"  
+                             IsCurvedCornersEnabled="True"  
+                             BorderColor="{DynamicResource GrayTextColor}"      
+                             HorizontalTextAlignment="Start"  
+                             FontSize="Medium"  
+                             Placeholder="Password"  
+                             PlaceholderColor="{DynamicResource GrayTextColor}"  
+                             TextColor="{DynamicResource blackColor}"  
+                             />
+
+
+            <!--<Entry Grid.Row="2" Grid.ColumnSpan="3" Placeholder="Password" PlaceholderColor="Gray"/>-->
+
+            <!--<Label Grid.Row="0" Grid.Column="0" Text="Login" TextColor="Black"/>-->
+            <!--<Label Grid.Row="0" Grid.Column="1" Text="Signup" TextColor="Black"/>-->
+
+            <!--<StackLayout Grid.Row="1" Grid.ColumnSpan="3"
+                         BackgroundColor="Yellow"/>
+            
+            <StackLayout Grid.Row="2" Grid.ColumnSpan="3"
+                         BackgroundColor="Pink"/>-->
+
+            <StackLayout Grid.Row="3" Grid.ColumnSpan="3"
+                         HorizontalOptions="CenterAndExpand"
+                         >
+
+                <Label HorizontalTextAlignment="Center"
+                    Text="by pressing Login you agree to our" TextColor="{DynamicResource GrayTextColor}" FontSize="Small"  />
+                <Label  HorizontalTextAlignment="Center"
+                    Text="terms and conditions" TextDecorations="Underline" TextColor="{DynamicResource GrayTextColor}" FontSize="Small"  />
+                
+            </StackLayout>
+
+        </Grid>
   </ContentView.Content>
 </ContentView>
