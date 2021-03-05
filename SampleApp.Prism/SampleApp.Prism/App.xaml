@@ -4,6 +4,6 @@
              xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"  
               x:Class="SampleApp.Prism.App">
     <Application.Resources>
-
+        <ResourceDictionary Source="Resources/LightTheme.xaml" />
     </Application.Resources>
 </prism:PrismApplication>  

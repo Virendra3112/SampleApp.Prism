@@ -41,4 +41,15 @@
         <Setter Property="WidthRequest" Value="50" />
         <Setter Property="HeightRequest" Value="50" />
     </Style>
+    
+     <!--Sample Ui page theme-->
+
+    <Color x:Key="BlueBackgroundColor">#005ae8</Color>
+    <Color x:Key="GrayTextColor">#a9b8c3</Color>
+    
+    
+    
+    
+    
+    
 </ResourceDictionary>
