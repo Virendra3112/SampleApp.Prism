@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
-             NavigationPage.HasNavigationBar="False" BackgroundColor="#ffffff"
+             NavigationPage.HasNavigationBar="True" BackgroundColor="{DynamicResource whitecolor}"
              x:Class="SampleApp.Prism.Views.SampleUIPages.SampleLoginPage"
              xmlns:local="clr-namespace:SampleApp.Prism.CustomControls"
              >
@@ -14,45 +14,44 @@
         <AbsoluteLayout>
         <Grid
             AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
-            RowSpacing="0" ColumnSpacing="0" 
-            >
+            RowSpacing="0" ColumnSpacing="0" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="7*"/>
                 <RowDefinition Height="3*"/>                
                 
             </Grid.RowDefinitions>
             <Frame HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
-                CornerRadius="25" Grid.Row="0" BackgroundColor="#005ae8">
+                CornerRadius="25" Grid.Row="0" BackgroundColor="{DynamicResource BlueBackgroundColor}">
 
                 </Frame>
 
 
-            <StackLayout Grid.Row="1" BackgroundColor="White"/>
+                <StackLayout Grid.Row="1" BackgroundColor="{DynamicResource whiteColor}"/>
             
             
 
         </Grid>
 
             <Label  AbsoluteLayout.LayoutBounds=".1,.2,200,400" AbsoluteLayout.LayoutFlags="PositionProportional"
-                Text="We are here" TextColor="White" FontSize="Large" FontAttributes="Bold" />
+                Text="We are here" TextColor="{DynamicResource whiteColor}" FontSize="Large" FontAttributes="Bold" />
             
             <Label  AbsoluteLayout.LayoutBounds=".1,.3,200,400" AbsoluteLayout.LayoutFlags="PositionProportional"
-                Text="to help you welcome" TextColor="White" FontSize="Medium"  />
+                Text="to help you welcome" TextColor="{DynamicResource whiteColor}" FontSize="Medium"  />
             <Label  AbsoluteLayout.LayoutBounds=".1,.4,200,400" AbsoluteLayout.LayoutFlags="PositionProportional"
-                Text="and manage" TextColor="White" FontSize="Medium"  />
+                Text="and manage" TextColor="{DynamicResource whiteColor}" FontSize="Medium"  />
             <Label  AbsoluteLayout.LayoutBounds=".1,.5,200,400" AbsoluteLayout.LayoutFlags="PositionProportional"
-                Text="visitors anywhere." TextColor="White" FontSize="Medium"  />
+                Text="visitors anywhere." TextColor="{DynamicResource whiteColor}" FontSize="Medium"  />
 
             <Frame
                 AbsoluteLayout.LayoutBounds=".5,.75,400,350" AbsoluteLayout.LayoutFlags="PositionProportional"
-                BackgroundColor="White" CornerRadius="30" Margin="10" >
+                BackgroundColor="{DynamicResource whiteColor}" CornerRadius="30" Margin="10" >
 
                 <local:CustomLoginLayout/>
 
             </Frame>
 
             <Button  AbsoluteLayout.LayoutBounds=".5,.88,100,50" AbsoluteLayout.LayoutFlags="PositionProportional"
-                Text="Login" TextColor="White" BackgroundColor="#005ae8" FontSize="Medium"  />
+                Text="Login" TextColor="{DynamicResource whiteColor}" BackgroundColor="{DynamicResource BlueBackgroundColor}" FontSize="Medium"  />
 
         </AbsoluteLayout>
     </ContentPage.Content>
