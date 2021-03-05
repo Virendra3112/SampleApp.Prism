@@ -63,6 +63,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CustomRendrers\CustomRoundedCornerEntryRenderer.cs" />
     <Compile Include="CustomRendrers\ThemeHelper.cs" />
     <Compile Include="Helpers\AuthService.cs" />
     <Compile Include="Helpers\iOSAuthHelper.cs" />

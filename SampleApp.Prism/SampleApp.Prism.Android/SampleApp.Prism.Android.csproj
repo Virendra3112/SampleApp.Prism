@@ -98,6 +98,7 @@
   <ItemGroup>
     <Compile Include="CustomRendrers\AuthService.cs" />
     <Compile Include="CustomRendrers\BiometricHandler.cs" />
+    <Compile Include="CustomRendrers\CustomRoundedCornerEntryRenderer.cs" />
     <Compile Include="CustomRendrers\OCRRendrer.cs" />
     <Compile Include="CustomRendrers\ThemeHelper.cs" />
     <Compile Include="CustomRendrers\TouchIdAuthService.cs" />
