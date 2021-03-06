@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Prism.Navigation;
+using Prism.Services;
+using Prism.Services.Dialogs;
 
 namespace SampleApp.Prism.ViewModels.SampleUIViewModel
 {
-    class SampleDashboardPageViewModel
+    public class SampleDashboardPageViewModel : BaseViewModel
     {
+        public SampleDashboardPageViewModel(INavigationService navigationService, IDialogService dialogService, IPageDialogService pageDialogService) : base(navigationService, dialogService, pageDialogService)
+        {
+        }
     }
 }
