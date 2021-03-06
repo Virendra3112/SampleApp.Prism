@@ -51,6 +51,7 @@
             </Frame>
 
             <Button  AbsoluteLayout.LayoutBounds=".5,.88,100,50" AbsoluteLayout.LayoutFlags="PositionProportional"
+                     Command="{Binding LoginCommand}"
                 Text="Login" TextColor="{DynamicResource whiteColor}" BackgroundColor="{DynamicResource BlueBackgroundColor}" FontSize="Medium"  />
 
         </AbsoluteLayout>
