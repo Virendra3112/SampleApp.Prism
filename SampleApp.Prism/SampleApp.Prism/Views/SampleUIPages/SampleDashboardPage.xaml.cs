@@ -16,5 +16,10 @@ namespace SampleApp.Prism.Views.SampleUIPages
         {
             InitializeComponent();
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+        }
     }
 }
