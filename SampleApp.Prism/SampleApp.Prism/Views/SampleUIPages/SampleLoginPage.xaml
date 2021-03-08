@@ -60,9 +60,28 @@
 
             </Frame>
 
-            <Button  AbsoluteLayout.LayoutBounds=".5,.88,100,50" AbsoluteLayout.LayoutFlags="PositionProportional"
+            <!--<Button  AbsoluteLayout.LayoutBounds=".5,.88,100,50" AbsoluteLayout.LayoutFlags="PositionProportional"
                      Command="{Binding LoginCommand}"
-                Text="Login" TextColor="{DynamicResource whiteColor}" BackgroundColor="{DynamicResource BlueBackgroundColor}" FontSize="Medium"  />
+                Text="Login" TextColor="{DynamicResource whiteColor}"
+                     BackgroundColor="{DynamicResource BlueBackgroundColor}" FontSize="Medium"  />-->
+
+            <StackLayout BackgroundColor="Transparent" AbsoluteLayout.LayoutBounds=".5,.88,100,50" AbsoluteLayout.LayoutFlags="PositionProportional">
+
+                <pcview:PancakeView
+                            BackgroundColor="{DynamicResource BlueBackgroundColor}"
+                            CornerRadius="150" HeightRequest="50"
+                            HorizontalOptions="FillAndExpand">
+
+                    <Button 
+                        Command="{Binding LoginCommand}"
+                        Text="Login" TextColor="{DynamicResource whiteColor}"
+                        BackgroundColor="Transparent" FontSize="Medium"  />
+                    
+                </pcview:PancakeView>
+
+            </StackLayout>
+
+                
 
         </AbsoluteLayout>
     </ContentPage.Content>
