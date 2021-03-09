@@ -35,14 +35,21 @@
 
 
                     </StackLayout>
-                    <StackLayout Grid.Column="1" BackgroundColor="Transparent">
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="8*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="1" Source="icon" VerticalOptions="Start" HorizontalOptions="EndAndExpand"                               
+                               HeightRequest="60" WidthRequest="60" />
+
+                        <Label Grid.Column="0" Margin="0,10,0,0" VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                               Text="Hello" TextColor="White" FontSize="Medium" FontAttributes="Bold" />
                         
-                        <Image Source="icon" HorizontalOptions="End" HeightRequest="60" WidthRequest="60" />
-
-
-
-                    </StackLayout>
-
+                        <Label Grid.Column="0" Margin="0,30,0,0" VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                               Text="Jack Sparrow" TextColor="White" FontSize="Small" />
+                    </Grid>
                 </Grid>
 
 
@@ -51,8 +58,7 @@
             
             <pcview:PancakeView Grid.Row="1" BackgroundColor="White"
                             CornerRadius="20,20,0,0" Padding="10"
-                            HorizontalOptions="FillAndExpand"
-                            >
+                            HorizontalOptions="FillAndExpand">
                 <ScrollView>
                 <Grid RowSpacing="10" Margin="10">
                     <Grid.RowDefinitions>
