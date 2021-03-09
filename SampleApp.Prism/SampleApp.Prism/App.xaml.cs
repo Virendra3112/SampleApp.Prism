@@ -78,6 +78,7 @@ namespace SampleApp.Prism
 
             containerRegistry.RegisterForNavigation<SampleLoginPage, SampleLoginPageViewModel>();
             containerRegistry.RegisterForNavigation<SampleDashboardPage, SampleDashboardPageViewModel>();
+            containerRegistry.RegisterForNavigation<SampleCheckinOutTypePage, SampleCheckinOutTypePageViewModel>();
 
 
             //App.RegisterType<ILogger, Logger>();
