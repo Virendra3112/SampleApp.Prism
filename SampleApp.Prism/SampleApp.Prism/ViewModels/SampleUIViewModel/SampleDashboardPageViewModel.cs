@@ -1,6 +1,7 @@
 ﻿using Prism.Navigation;
 using Prism.Services;
 using Prism.Services.Dialogs;
+using SampleApp.Prism.Models.Enum;
 using SampleApp.Prism.Views.SampleUIPages;
 using System;
 using System.Windows.Input;
@@ -23,22 +24,22 @@ namespace SampleApp.Prism.ViewModels.SampleUIViewModel
             {
                 switch (obj.ToString())
                 {
-                    case "Check-In":
+                    case nameof(Tiles.CheckIn):
 
                         await _navigationService.NavigateAsync(nameof(SampleCheckinOutTypePage));
 
                         break;
 
-                    case "Check-Out":
+                    case nameof(Tiles.CheckOut):
                         await _navigationService.NavigateAsync(nameof(SampleCheckinOutTypePage));
 
                         break;
 
-                    case "Logs":
+                    case nameof(Tiles.Logs):
 
                         break;
 
-                    case "Supervision":
+                    case nameof(Tiles.Supervision):
 
                         break;
 
