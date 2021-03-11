@@ -15,22 +15,25 @@ namespace SampleApp.Prism.ViewModels.SampleUIViewModel
 
         public SampleDashboardPageViewModel(INavigationService navigationService, IDialogService dialogService, IPageDialogService pageDialogService) : base(navigationService, dialogService, pageDialogService)
         {
-            SelectCommand = new Command(OnTileClicked);
+            SelectCommand = new Command<string>(OnTileClicked);
         }
 
-        private async void OnTileClicked(object obj)
+        private async void OnTileClicked(string obj)
         {
             try
             {
-                switch (obj.ToString())
+                switch (obj)
                 {
-                    case nameof(Tiles.CheckIn):
-
-                        await _navigationService.NavigateAsync(nameof(SampleCheckinOutTypePage));
+                    case "Check-In":
+                        var navParameters = new NavigationParameters
+                            {
+                                { "TileName", nameof(Tiles.CheckIn) }
+                            };
+                        await _navigationService.NavigateAsync(nameof(SampleCheckinOutTypePage), navParameters);
 
                         break;
 
-                    case nameof(Tiles.CheckOut):
+                    case "Check-Out":
                         await _navigationService.NavigateAsync(nameof(SampleCheckinOutTypePage));
 
                         break;
