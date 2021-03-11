@@ -6,12 +6,13 @@ using Prism.Navigation;
 using Prism.Services;
 using Prism.Services.Dialogs;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace SampleApp.Prism.ViewModels
 {
-    public class BaseViewModel : BindableBase, INotifyPropertyChanged, IActiveAware
+    public class BaseViewModel : BindableBase, INotifyPropertyChanged, IActiveAware, INavigationAware
     {
         private string _height;
         public string Height
@@ -78,6 +79,29 @@ namespace SampleApp.Prism.ViewModels
             //    _isActive = value;
             //    RaisePropertyChanged();
             //}
+        }
+
+
+        private IEnumerator<KeyValuePair<string, object>> _onNavigatedFromParameter;
+        public IEnumerator<KeyValuePair<string, object>> OnNavigatedFromParameter
+        {
+            get { return _onNavigatedFromParameter; }
+            set
+            {
+                _onNavigatedFromParameter = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private IEnumerator<KeyValuePair<string, object>> _onNavigatedToParameter;
+        public IEnumerator<KeyValuePair<string, object>> OnNavigatedToParameter
+        {
+            get { return _onNavigatedToParameter; }
+            set
+            {
+                _onNavigatedToParameter = value;
+                RaisePropertyChanged();
+            }
         }
 
         public readonly INavigationService _navigationService;
@@ -168,6 +192,23 @@ namespace SampleApp.Prism.ViewModels
         protected virtual void RaiseIsActiveChanged()
         {
             IsActiveChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        public void OnNavigatedTo(INavigationParameters parameters)
+        {
+            if (parameters.Count > 0)
+            {
+                OnNavigatedToParameter = parameters.GetEnumerator();
+            }
+        }
+
+        public void OnNavigatedFrom(INavigationParameters parameters)
+        {
+            if(parameters.Count > 0)
+            {
+                OnNavigatedFromParameter = parameters.GetEnumerator();
+            }
+
         }
     }
 }
