@@ -5,6 +5,10 @@
         CheckIn,
         CheckOut,
         Logs,
-        Supervision
+        Supervision,
+
+        Visitors,
+        Residents,
+        ServiceProviders
     }
 }
