@@ -1,12 +1,166 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" NavigationPage.HasNavigationBar="True"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True" BackgroundColor="{DynamicResource BlueBackgroundColor}"
+             xmlns:pcview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="SampleApp.Prism.Views.SampleUIPages.SampleCheckinOutTypePage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        
+        <Grid   g="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="7*"/>
+
+            </Grid.RowDefinitions>
+
+            <pcview:PancakeView Grid.Row="0" BackgroundColor="{DynamicResource BlueBackgroundColor}"
+                            CornerRadius="0,0,0,0"
+                            HorizontalOptions="FillAndExpand"
+                            >
+
+                <Grid ColumnSpacing="0" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="9*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Column="0" Margin="0,5,0,0" BackgroundColor="Transparent" Orientation="Vertical">
+
+                        <Image HeightRequest="20" WidthRequest="20" Source="icon"/>
+
+
+                    </StackLayout>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="8*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="1" Source="icon" VerticalOptions="Start" HorizontalOptions="EndAndExpand"                               
+                               HeightRequest="60" WidthRequest="60" />
+
+                        <Label Grid.Column="0" Margin="0,10,0,0" VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                               Text="Hello" TextColor="White" FontSize="Medium" FontAttributes="Bold" />
+
+                        <Label Grid.Column="0" Margin="0,30,0,0" VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                               Text="Jack Sparrow" TextColor="White" FontSize="Small" />
+                    </Grid>
+                </Grid>
+
+
+
+            </pcview:PancakeView>
+
+            <pcview:PancakeView Grid.Row="1" BackgroundColor="LightGray"
+                            CornerRadius="20,20,0,0" Padding="10"
+                            HorizontalOptions="FillAndExpand">
+                <ScrollView>
+                    <Grid RowSpacing="10" Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+
+                        </Grid.RowDefinitions>
+
+                        <StackLayout Grid.Row="0" >
+
+                            <pcview:PancakeView  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                             BackgroundColor="White"
+                            CornerRadius="15,15,15,15" Padding="10">
+
+                                <StackLayout  Orientation="Horizontal" Margin="10">
+                                    <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" >
+
+                                        <Label Text="Visitors" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                                        <Label Text="567 check-in" FontSize="Small" TextColor="Black"/>
+
+                                    </StackLayout>
+
+                                    <Image Source="icon" HeightRequest="60" WidthRequest="60"
+                                       VerticalOptions="Center" HorizontalOptions="End"/>
+
+                                </StackLayout>
+
+                                <pcview:PancakeView.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectCommand}" CommandParameter="Check-In"/>
+                                </pcview:PancakeView.GestureRecognizers>
+
+
+                            </pcview:PancakeView>
+
+
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="1" >
+
+                            <pcview:PancakeView  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                             BackgroundColor="White"
+                            CornerRadius="15,15,15,15" Padding="10"
+                            >
+                                <StackLayout  Orientation="Horizontal" Margin="10">
+                                    <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" >
+
+                                        <Label Text="Residents" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                                        <Label Text="123 check-out" FontSize="Small" TextColor="Black"/>
+
+                                    </StackLayout>
+
+                                    <Image Source="icon" HeightRequest="60" WidthRequest="60"
+                                       VerticalOptions="Center" HorizontalOptions="End"/>
+
+                                </StackLayout>
+
+                                <pcview:PancakeView.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectCommand}" CommandParameter="Check-Out"/>
+                                </pcview:PancakeView.GestureRecognizers>
+
+                            </pcview:PancakeView>
+
+
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="2" >
+
+                            <pcview:PancakeView  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                             BackgroundColor="White"
+                            CornerRadius="15,15,15,15" Padding="10"
+                            >
+
+                                <StackLayout  Orientation="Horizontal" Margin="10">
+                                    <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" >
+
+                                        <Label Text="Service Providers" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+                                        <Label Text="All logs" FontSize="Small" TextColor="Black"/>
+
+                                    </StackLayout>
+
+                                    <Image Source="icon" HeightRequest="60" WidthRequest="60"
+                                       VerticalOptions="Center" HorizontalOptions="End"/>
+
+                                </StackLayout>
+
+                                <pcview:PancakeView.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectCommand}" CommandParameter="Logs"/>
+                                </pcview:PancakeView.GestureRecognizers>
+
+                            </pcview:PancakeView>
+
+
+                        </StackLayout>
+                       
+
+                    </Grid>
+
+                </ScrollView>
+            </pcview:PancakeView>
+
+
+        </Grid>
+        
     </ContentPage.Content>
 </ContentPage>
