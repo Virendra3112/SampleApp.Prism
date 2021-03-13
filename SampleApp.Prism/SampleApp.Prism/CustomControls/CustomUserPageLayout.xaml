@@ -1,10 +1,46 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pcview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="SampleApp.Prism.CustomControls.CustomUserPageLayout">
   <ContentView.Content>
       <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
+            <pcview:PancakeView Grid.Row="0" BackgroundColor="{DynamicResource BlueBackgroundColor}"
+                            CornerRadius="0,0,0,0"
+                            HorizontalOptions="FillAndExpand">
+
+                <Grid ColumnSpacing="0" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="9*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Column="0" Margin="0,5,0,0" BackgroundColor="Transparent" Orientation="Vertical">
+
+                        <Image HeightRequest="20" WidthRequest="20" Source="icon"/>
+
+
+                    </StackLayout>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="8*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="1" Source="icon" VerticalOptions="Start" HorizontalOptions="EndAndExpand"                               
+                               HeightRequest="60" WidthRequest="60" />
+
+                        <Label Grid.Column="0" Margin="0,10,0,0" VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                               Text="Hello" TextColor="White" FontSize="Medium" FontAttributes="Bold" />
+
+                        <Label Grid.Column="0" Margin="0,30,0,0" VerticalOptions="Start" HorizontalOptions="EndAndExpand"
+                               Text="{Binding UserName}" TextColor="White" FontSize="Small" />
+                    </Grid>
+                </Grid>
+
+
+
+            </pcview:PancakeView>
+        </StackLayout>
   </ContentView.Content>
 </ContentView>
