@@ -53,6 +53,7 @@ namespace SampleApp.Prism.Droid
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
+            FFImageLoading.Svg.Forms.SvgCachedImage.Init();
             
             LoadApplication(new App(new AndroidInitializer()));
         }
