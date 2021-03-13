@@ -104,6 +104,17 @@ namespace SampleApp.Prism.ViewModels
             }
         }
 
+        private string _userName;
+        public string UserName
+        {
+            get { return _userName; }
+            set
+            {
+                _userName = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public readonly INavigationService _navigationService;
         public readonly IDialogService _dialogService;
         public readonly IPageDialogService _pageDialogService;
@@ -115,6 +126,8 @@ namespace SampleApp.Prism.ViewModels
             _pageDialogService = pageDialogService;
 
             CheckConnectivity();
+
+            UserName = "Jack Sparrow";
         }
 
         /// <summary>
