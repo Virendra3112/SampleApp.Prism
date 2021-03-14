@@ -9,6 +9,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace SampleApp.Prism.ViewModels
 {
@@ -115,12 +117,17 @@ namespace SampleApp.Prism.ViewModels
             }
         }
 
+        public ICommand BackCommand { get; set; }
+
+
         public readonly INavigationService _navigationService;
         public readonly IDialogService _dialogService;
         public readonly IPageDialogService _pageDialogService;
 
         public BaseViewModel(INavigationService navigationService, IDialogService dialogService, IPageDialogService pageDialogService)
         {
+            BackCommand = new Command(OnBackbuttonClicked);
+
             _navigationService = navigationService;
             _dialogService = dialogService;
             _pageDialogService = pageDialogService;
@@ -128,6 +135,18 @@ namespace SampleApp.Prism.ViewModels
             CheckConnectivity();
 
             UserName = "Jack Sparrow";
+        }
+
+        private void OnBackbuttonClicked(object obj)
+        {
+            try
+            {
+                _navigationService.GoBackAsync();
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         /// <summary>

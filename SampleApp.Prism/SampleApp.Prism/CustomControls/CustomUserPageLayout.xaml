@@ -2,6 +2,7 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pcview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:ffImage="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              x:Class="SampleApp.Prism.CustomControls.CustomUserPageLayout">
   <ContentView.Content>
       <StackLayout>
@@ -9,26 +10,52 @@
                             CornerRadius="0,0,0,0"
                             HorizontalOptions="FillAndExpand">
 
-                <Grid ColumnSpacing="0" Margin="10">
+                <Grid ColumnSpacing="0" RowSpacing="5" Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="8*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="9*"/>
                     </Grid.ColumnDefinitions>
 
-                    <StackLayout Grid.Column="0" Margin="0,5,0,0" BackgroundColor="Transparent" Orientation="Vertical">
 
-                        <Image HeightRequest="20" WidthRequest="20" Source="icon"/>
+                    <ffImage:SvgCachedImage 
+                        Grid.Row="1" Grid.Column="0" Margin="0,5,0,0"
+                        HorizontalOptions="Start" VerticalOptions="StartAndExpand"
+                                HeightRequest="50" WidthRequest="50"
+                                Source="resource://SampleApp.Prism.Resources.SVG.back2.svg">
 
+                        <ffImage:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding BackCommand}"/>
+                        </ffImage:SvgCachedImage.GestureRecognizers>
+                    </ffImage:SvgCachedImage>
 
-                    </StackLayout>
-                    <Grid Grid.Column="1">
+                    <ffImage:SvgCachedImage 
+                        Grid.Row="0" Grid.Column="0" Margin="0,5,0,0"
+                                HeightRequest="50" WidthRequest="50"
+                                HorizontalOptions="Start" VerticalOptions="StartAndExpand"
+                                Source="resource://SampleApp.Prism.Resources.SVG.menu.svg">
+                        
+                        
+                    </ffImage:SvgCachedImage>
+                        
+
+                    <Grid Grid.Row="0" Grid.Column="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="8*"/>
                             <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Image Grid.Column="1" Source="icon" VerticalOptions="Start" HorizontalOptions="EndAndExpand"                               
-                               HeightRequest="60" WidthRequest="60" />
+                        <ffImage:SvgCachedImage 
+                        Grid.Column="1" 
+                        HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand"
+                                HeightRequest="60" WidthRequest="60"
+                                Source="resource://SampleApp.Prism.Resources.SVG.user.svg">
+                            
+                        </ffImage:SvgCachedImage>
 
                         <Label Grid.Column="0" Margin="0,10,0,0" VerticalOptions="Start" HorizontalOptions="EndAndExpand"
                                Text="Hello" TextColor="White" FontSize="Medium" FontAttributes="Bold" />
