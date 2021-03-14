@@ -11,15 +11,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\SVG\back.svg" />
+    <None Remove="Resources\SVG\back2.svg" />
     <None Remove="Resources\SVG\left-arrow.svg" />
+    <None Remove="Resources\SVG\menu.svg" />
     <None Remove="Resources\SVG\right-arrow.svg" />
     <None Remove="Resources\SVG\svg1.svg" />
+    <None Remove="Resources\SVG\user.svg" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\SVG\back.svg" />
+    <EmbeddedResource Include="Resources\SVG\back2.svg" />
     <EmbeddedResource Include="Resources\SVG\left-arrow.svg" />
+    <EmbeddedResource Include="Resources\SVG\menu.svg" />
     <EmbeddedResource Include="Resources\SVG\right-arrow.svg" />
     <EmbeddedResource Include="Resources\SVG\svg1.svg" />
+    <EmbeddedResource Include="Resources\SVG\user.svg" />
   </ItemGroup>
 
   <ItemGroup>
