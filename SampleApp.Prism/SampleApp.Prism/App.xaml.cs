@@ -73,6 +73,7 @@ namespace SampleApp.Prism
             containerRegistry.RegisterForNavigation<SecondTabPage, SecondTabPageViewModel>();
             containerRegistry.RegisterForNavigation<DeviceAuthDetailsPage, DeviceAuthDetailsPageViewModel>();
             containerRegistry.RegisterForNavigation<OCRPage, OCRPageViewModel>();
+            containerRegistry.RegisterForNavigation<PanPinchSamplePage, PanPinchSamplePageViewModel>();
 
             //*************** SampleUI pages **************************************
 
