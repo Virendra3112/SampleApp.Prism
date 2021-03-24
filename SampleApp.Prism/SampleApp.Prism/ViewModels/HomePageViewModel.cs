@@ -35,6 +35,7 @@ namespace SampleApp.Prism.ViewModels
             CategoryList.Add(new MyMenuItem { PageName = "SVG Scale", Icon = "icon.png" });
             CategoryList.Add(new MyMenuItem { PageName = "OCR", Icon = "icon.png" });
             CategoryList.Add(new MyMenuItem { PageName = "SampleUI", Icon = "icon.png" });
+            CategoryList.Add(new MyMenuItem { PageName = "PanPinch", Icon = "icon.png" });
         }
 
         private async void MenuSelected(object obj)
@@ -53,12 +54,16 @@ namespace SampleApp.Prism.ViewModels
                         await _navigationService.NavigateAsync(nameof(CustomSVGPage));
                         break;
 
-                        case ("OCR"):
+                    case ("OCR"):
                         await _navigationService.NavigateAsync(nameof(OCRPage));
                         break;
 
-                        case ("SampleUI"):
+                    case ("SampleUI"):
                         await _navigationService.NavigateAsync(nameof(SampleLoginPage));
+                        break;
+
+                    case ("PanPinch"):
+                        await _navigationService.NavigateAsync(nameof(PanPinchSamplePage));
                         break;
 
                 }
