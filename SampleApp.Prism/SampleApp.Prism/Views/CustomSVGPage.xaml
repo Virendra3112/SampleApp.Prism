@@ -19,7 +19,7 @@
 
 
             <CarouselView 
-            IsSwipeEnabled="True"  VerticalScrollBarVisibility="Never"
+            IsSwipeEnabled="False"  VerticalScrollBarVisibility="Never"
             IsScrollAnimated="True" IsBounceEnabled="True"
             ItemsSource="{Binding CarouselList}"
             Position="{Binding CurrenrtImagePosition}"
