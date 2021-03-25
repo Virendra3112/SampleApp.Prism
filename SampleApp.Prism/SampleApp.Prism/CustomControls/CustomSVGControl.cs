@@ -41,6 +41,10 @@ namespace SampleApp.Prism.CustomControls
 
         #endregion
 
+
+        private PanGestureRecognizer panGestureRecognizer;
+        private PinchGestureRecognizer pinchGestureRecognizer;
+        private TapGestureRecognizer doubleTapGestureRecognizer;
         #endregion
 
         #region Constructor
@@ -103,16 +107,15 @@ namespace SampleApp.Prism.CustomControls
 
         private void InitializeGestures()
         {
-            PanGestureRecognizer panGestureRecognizer = new PanGestureRecognizer();
-            panGestureRecognizer.PanUpdated += MovePicture;
+            _canvasView?.GestureRecognizers.Remove(pinchGestureRecognizer);
+            _canvasView?.GestureRecognizers.Remove(doubleTapGestureRecognizer);
 
-            PinchGestureRecognizer pinchGestureRecognizer = new PinchGestureRecognizer();
+            pinchGestureRecognizer = new PinchGestureRecognizer();
             pinchGestureRecognizer.PinchUpdated += ZoomPicture;
 
-            TapGestureRecognizer doubleTapGestureRecognizer = new TapGestureRecognizer { NumberOfTapsRequired = 2 };
+            doubleTapGestureRecognizer = new TapGestureRecognizer { NumberOfTapsRequired = 2 };
             doubleTapGestureRecognizer.Tapped += ZoomToFit;
 
-            _canvasView.GestureRecognizers.Add(panGestureRecognizer);
             _canvasView.GestureRecognizers.Add(pinchGestureRecognizer);
             _canvasView.GestureRecognizers.Add(doubleTapGestureRecognizer);
         }
@@ -135,6 +138,18 @@ namespace SampleApp.Prism.CustomControls
         {
             switch (e.Status)
             {
+                case GestureStatus.Started:
+
+                    _canvasView?.GestureRecognizers.Remove(panGestureRecognizer);
+
+                    panGestureRecognizer = new PanGestureRecognizer();
+                    panGestureRecognizer.PanUpdated += MovePicture;
+                    _canvasView.GestureRecognizers.Add(panGestureRecognizer);
+
+                    break;
+
+
+
                 case GestureStatus.Running:
                     float pinchX = (float)(e.ScaleOrigin.X * Width);
                     float pinchY = (float)(e.ScaleOrigin.Y * Height);
