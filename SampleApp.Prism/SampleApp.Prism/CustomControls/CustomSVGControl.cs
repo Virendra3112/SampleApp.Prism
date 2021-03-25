@@ -165,6 +165,14 @@ namespace SampleApp.Prism.CustomControls
 
                     UpdateImageProperties(newX, newY, newScale);
                     break;
+
+                case GestureStatus.Completed:
+                    _canvasView?.GestureRecognizers.Remove(panGestureRecognizer);
+                    break;
+
+                case GestureStatus.Canceled:
+                    _canvasView?.GestureRecognizers.Remove(panGestureRecognizer);
+                    break;
             }
         }
 
